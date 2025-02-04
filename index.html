@@ -42,11 +42,50 @@
     .contact {
         margin: 10px 0;
         font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .contact a {
         color: #007bff;
         text-decoration: none;
+        display: block;
+        margin: 4px 0;
+    }
+
+    .contact a::before {
+        content: "• ";
+        color: #007bff;
+    }
+
+    .project-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 15px 0;
+        font-size: 14px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 6px;
+    }
+
+    .project-links a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        padding: 8px;
+        background-color: white;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    .project-links a:hover {
+        background-color: #e9ecef;
+    }
+
+    .project-links a::before {
+        content: "📎 ";
     }
 
     .project {
@@ -97,18 +136,19 @@
     <main class="container">
         <section class="header">
             <h1>Brett Smith</h1>
-            <p class="contact">
-                Email:
-                <a href="mailto:brett03112@gmail.com">brett03112@gmail.com</a>
-                | Phone: (606) 510-1119 | LinkedIn:
-                <a href="https://www.linkedin.com/in/brett-smith-b78493207"></a>
-            </p>
-            <p class="project">
-                | Code: You May 2024 Software Development with C# Project:
-                <a href="https://holidaydessertstore-ehcdecg3a5arbtd2.canadacentral-01.azurewebsites.net/">Holiday Dessert Store Project</a>
-                | GitHub Repo: 
-                <a href="https://github.com/brett03112/Code-You-Final-Project">GitHub Repo</a>
-            </p>
+            <div class="contact">
+                <a href="mailto:brett03112@gmail.com">Email: brett03112@gmail.com</a>
+                <span>Phone: (606) 510-1119</span>
+                <a href="https://www.linkedin.com/in/brett-smith-b78493207">LinkedIn Profile</a>
+            </div>
+            <div class="project-links">
+                <a href="https://holidaydessertstore-ehcdecg3a5arbtd2.canadacentral-01.azurewebsites.net">
+                    Code You C# Project: Holiday Dessert Store
+                </a>
+                <a href="https://github.com/brett03112/Code-You-Final-Project">
+                    View Project Source Code on GitHub
+                </a>
+            </div>
         </section>
         <section class="section">
             <h2>Summary</h2>
