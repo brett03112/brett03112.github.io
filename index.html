@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" role="document">
 
 <head>
     <meta charset="UTF-8" />
@@ -227,10 +227,6 @@
         box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
     }
 
-    .github-link::before {
-        content: "⭐ ";
-    }
-
     .skills ul {
         list-style: none;
         padding: 0;
@@ -280,22 +276,22 @@
 </style>
 
 <body>
-    <main class="container">
-        <section class="header animate__animated animate__fadeIn">
-            <h1 class="animate__animated animate__pulse animate__infinite">Brett Smith</h1>
+    <main class="container" role="main">
+        <section class="header animate__animated animate__fadeIn" role="banner">
+            <h1 class="animate__animated animate__pulse animate__infinite" role="heading" aria-level="1">Brett Smith</h1>
             <div class="contact">
-                <a href="mailto:brett03112@gmail.com">Email: brett03112@gmail.com</a>
-                <span>📱 Phone: (606) 510-1119</span>
-                <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank">🔗 LinkedIn Profile</a>
+                <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
+                <span role="text">📱 Phone: (606) 510-1119</span>
+                <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank" aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
             </div>
             <div class="project-links">
-                <a href="https://oldmancoder.net" target="_blank">
+                <a href="https://oldmancoder.net" target="_blank" aria-label="Visit Brett Smith's Homepage">
                     Visit My Homepage
                 </a>
             </div>
         </section>
-        <section class="section">
-            <h2>👨‍💻 Summary</h2>
+        <section class="section" role="region" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">👨‍💻 Summary</h2>
             <p>
                 <strong>Hello! I'm a new/junior developer focusing on .NET, HTML, CSS, JavaScript and full-stack development.
                 I'm excited about building robust and scalable applications using the .NET stack and learning new
@@ -306,8 +302,8 @@
                 developer.</strong>
             </p>
         </section>
-        <section class="section">
-            <h2>💼 Work Experience</h2>
+        <section class="section" role="region" aria-labelledby="work-experience-heading">
+            <h2 id="work-experience-heading">💼 Work Experience</h2>
             <div class="item">
                 <h3>Job Title - Company Name</h3>
                 <p>Dates of Employment</p>
@@ -325,15 +321,15 @@
                 </p>
             </div>
         </section>
-        <div class="section">
-            <h2>🎓 Education</h2>
+        <section class="section" role="region" aria-labelledby="education-heading">
+            <h2 id="education-heading">🎓 Education</h2>
             <div class="item">
                 <h3>High School Diploma/ Lincoln County High School, Stanford, KY</h3>
                 <p>1995</p>
             </div>
-        </div>
-        <section class="section">
-            <h2>🚀 Skills</h2>
+        </section>
+        <section class="section" role="region" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">🚀 Skills</h2>
             <div class="skills">
                 <ul>
                     <li>⚡ HTML</li>
@@ -355,8 +351,8 @@
                 </ul>
             </div>
         </section>
-        <section class="section">
-            <h2>🛠️ Projects</h2>
+        <section class="section" role="region" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">🛠️ Projects</h2>
             <div class="item">
                 <h3>Code: You "Holiday Dessert App"</h3>
                 <p>
@@ -369,7 +365,7 @@
                     for local weather information.</strong>
                 </p>
                 <p>
-                    <a href="https://github.com/brett03112/Code-You-Final-Project" class="github-link" target="_blank">
+                    <a href="https://github.com/brett03112/Code-You-Final-Project" class="github-link" target="_blank" aria-label="View Code for Holiday Dessert App">
                         📁 View Code</a>
                 </p>
             </div>
