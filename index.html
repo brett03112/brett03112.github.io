@@ -5,58 +5,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
 <style>
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+
+    @keyframes shine {
+        0% { background-position: -100px; }
+        100% { background-position: 500px; }
+    }
+
+    @keyframes peek {
+        0% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @keyframes highlight {
+        0% { background-position: -100% 0; }
+        100% { background-position: 200% 0; }
+    }
+
     body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
-        color: #333;
-        background-color: #f4f4f4;
+        color: #1a1a1a;
+        background: linear-gradient(-45deg, #e6e9f0, #d1d9e6, #e2e8f0, #edf2f7);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
     }
 
     .container {
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid #d1d9e6;
+        animation: fadeIn 1s ease-out;
     }
 
-    h1,
-    h2 {
-        color: #007bff;
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+        color: #2d3e50;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     .header {
         text-align: center;
+        background: linear-gradient(145deg, #2d3e50, #34495e);
+        padding: 25px;
+        border-radius: 8px;
+        margin: -20px -20px 20px -20px;
+        animation: slideInDown 1s ease-out;
     }
 
     .header h1 {
         margin: 10px 0;
+        color: #ffffff;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
     }
 
     .contact {
-        margin: 10px 0;
-        font-size: 14px;
+        margin: 15px 0;
+        font-size: 15px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
+        color: #ffffff;
     }
 
     .contact a {
-        color: #007bff;
+        color: #ffffff;
         text-decoration: none;
         display: block;
         margin: 4px 0;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: fadeIn 1s ease-out;
+    }
+
+    .contact a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        animation: pulse 1s;
+    }
+
+    .contact span {
+        padding: 5px 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        animation: fadeIn 1.2s ease-out;
     }
 
     .contact a::before {
-        content: "• ";
-        color: #007bff;
+        content: "📧 ";
     }
 
     .project-links {
@@ -64,46 +129,62 @@
         flex-direction: column;
         gap: 12px;
         margin: 15px 0;
-        font-size: 14px;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-radius: 6px;
+        font-size: 15px;
+        padding: 15px;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        animation: fadeIn 1.4s ease-out;
     }
 
     .project-links a {
-        color: #007bff;
+        color: #2d3e50;
         text-decoration: none;
         display: block;
-        padding: 8px;
+        padding: 12px;
         background-color: white;
-        border-radius: 4px;
-        transition: background-color 0.2s;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        font-weight: 500;
+        position: relative;
     }
 
     .project-links a:hover {
-        background-color: #e9ecef;
+        background-color: #2d3e50;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
+        animation: peek 1s ease-in-out infinite;
     }
 
     .project-links a::before {
-        content: "📎 ";
+        content: "👀 ";
+        transition: all 0.3s ease;
     }
 
-    .project {
-        margin: 10px 0;
-        font-size: 14px;
-    }
     .section {
         margin: 20px 0;
+        animation: fadeInUp 1s ease-out;
+        opacity: 1;
     }
 
     .section h2 {
-        margin-bottom: 10px;
-        border-bottom: 2px solid #007bff;
-        padding-bottom: 5px;
+        margin-bottom: 15px;
+        border-bottom: 3px solid #2d3e50;
+        padding-bottom: 8px;
+        font-size: 1.8em;
+        color: #2d3e50;
     }
 
     .item {
         margin-bottom: 15px;
+        transition: all 0.3s ease;
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    .item:hover {
+        transform: translateX(10px);
     }
 
     .item h3 {
@@ -117,48 +198,116 @@
         font-size: 14px;
     }
 
+    .github-link {
+        display: inline-block;
+        color: #2d3e50;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        background: linear-gradient(90deg, 
+            rgba(45, 62, 80, 0.1) 0%,
+            rgba(45, 62, 80, 0.2) 50%,
+            rgba(45, 62, 80, 0.1) 100%
+        );
+        background-size: 200% 100%;
+        animation: highlight 2s linear infinite;
+        transition: all 0.3s ease;
+    }
+
+    .github-link:hover {
+        color: white;
+        background: linear-gradient(90deg,
+            #2d3e50 0%,
+            #34495e 50%,
+            #2d3e50 100%
+        );
+        background-size: 200% 100%;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
+    }
+
+    .github-link::before {
+        content: "⭐ ";
+    }
+
     .skills ul {
         list-style: none;
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
     }
 
     .skills ul li {
         display: inline-block;
-        background: #007bff;
+        background: linear-gradient(145deg, #2d3e50, #34495e);
         color: #fff;
-        padding: 5px 10px;
-        margin: 5px 5px 5px 0;
-        border-radius: 4px;
+        padding: 8px 15px;
+        margin: 6px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(45, 62, 80, 0.15);
+        animation: fadeIn 2s ease-out;
+        position: relative;
+        overflow: hidden;
+        transform-origin: center;
+    }
+
+    .skills ul li:hover {
+        box-shadow: 0 4px 12px rgba(45, 62, 80, 0.25);
+    }
+
+    .skills ul li::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: rotate(45deg);
+        animation: shine 3s infinite;
+        pointer-events: none;
     }
 </style>
 
 <body>
     <main class="container">
-        <section class="header">
-            <h1>Brett Smith</h1>
+        <section class="header animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__pulse animate__infinite">Brett Smith</h1>
             <div class="contact">
                 <a href="mailto:brett03112@gmail.com">Email: brett03112@gmail.com</a>
-                <span>Phone: (606) 510-1119</span>
-                <a href="https://www.linkedin.com/in/brett-smith-b78493207">LinkedIn Profile</a>
+                <span>📱 Phone: (606) 510-1119</span>
+                <a href="https://www.linkedin.com/in/brett-smith-b78493207">🔗 LinkedIn Profile</a>
             </div>
             <div class="project-links">
-                <a href="https://holidaydessertstore-ehcdecg3a5arbtd2.canadacentral-01.azurewebsites.net">
-                    Code You C# Project: Holiday Dessert Store
-                </a>
-                <a href="https://github.com/brett03112/Code-You-Final-Project">
-                    View Project Source Code on GitHub
+                <a href="https://oldmancoder.org" target="_blank">
+                    Visit My Homepage
                 </a>
             </div>
         </section>
         <section class="section">
-            <h2>Summary</h2>
+            <h2>👨‍💻 Summary</h2>
             <p>
-                A brief summary about yourself, your skills, and what you
-                bring to the table. Keep it concise and impactful.
+                Hello! I'm a new/junior developer focusing on .NET, HTML, CSS, JavaScript and full-stack development.
+                I'm excited about building robust and scalable applications using the .NET stack and learning new
+                technologies.
+
+                I have nearly 16 years of experience within the Department of Justice working as a Utility Systems
+                Supervisor. My passion for technology and problem-solving drives me to learn and grow as a new
+                developer.
             </p>
         </section>
         <section class="section">
-            <h2>Work Experience</h2>
+            <h2>💼 Work Experience</h2>
             <div class="item">
                 <h3>Job Title - Company Name</h3>
                 <p>Dates of Employment</p>
@@ -177,52 +326,54 @@
             </div>
         </section>
         <div class="section">
-            <h2>Education</h2>
+            <h2>🎓 Education</h2>
             <div class="item">
                 <h3>High School Diploma/ Lincoln County High School, Stanford, KY</h3>
                 <p>1995</p>
             </div>
-            </section>
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>C# and .NET 6-9</li>
-                        <li>MS SQL Server, PostGres, Sqlite3, MongoDB, MySQL</li>
-                        <li>Git and GitHub/GitHub Pages/ GitLab/ GitHub Actions</li>
-                        <li>Linux/Bash/Linux Administration</li>
-                        <li>Windows/PowerShell</li>
-                        <li>Visual Studio Code</li>
-                        <li>Visual Studio</li>
-                        <li>Rider</li>
-                        <li>Azure/ Azure DevOps CI-CD/ Azure Functions/ Azure Storage/ Azure SQL/ Azure App Service</li>
-                        <li>Project Management</li>
-                        <li>15+ years Federal Law Enforcement/DOJ</li>
-                        <li>Public Speaking</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="section">
-                <h2>Projects</h2>
-                <div class="item">
-                    <h3>Project Name</h3>
-                    <p>
-                        Brief description of the project, the technologies used,
-                        and your role in the project.
-                    </p>
-                </div>
-                <div class="item">
-                    <h3>Project Name</h3>
-                    <p>
-                        Brief description of the project, the technologies used,
-                        and your role in the project.
-                    </p>
-                </div>
-            </section>
+        </div>
+        <section class="section">
+            <h2>🚀 Skills</h2>
+            <div class="skills">
+                <ul>
+                    <li>⚡ HTML</li>
+                    <li>🎨 CSS</li>
+                    <li>📜 JavaScript</li>
+                    <li>🐍 Python</li>
+                    <li>🔷 C# and .NET 6-9</li>
+                    <li>💾 MS SQL Server, PostGres, Sqlite3, MongoDB, MySQL</li>
+                    <li>📚 Git and GitHub/GitHub Pages/ GitLab/ GitHub Actions</li>
+                    <li>🐧 Linux/Bash/Linux Administration</li>
+                    <li>🪟 Windows/PowerShell</li>
+                    <li>📝 Visual Studio Code</li>
+                    <li>🎯 Visual Studio</li>
+                    <li>🏎️ Rider</li>
+                    <li>☁️ Azure/ Azure DevOps CI-CD/ Azure Functions/ Azure Storage/ Azure SQL/ Azure App Service</li>
+                    <li>📊 Project Management</li>
+                    <li>👮 15+ years Federal Law Enforcement/DOJ</li>
+                    <li>🎤 Public Speaking</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <h2>🛠️ Projects</h2>
+            <div class="item">
+                <h3>Code: You "Holiday Dessert App"</h3>
+                <p>
+                    My final project for the Code: You May 2024 Software Development with C#.
+                    The app is an ecommerce application for purchasing holiday desserts using C# 13
+                    and .NET 9 with Razor Pages, SQLite3, EF Core, BootStrap CSS, JavaScript and it
+                    implements a minimal API with JWT authentication/ tokenization using http REST
+                    client requests. The app is deployed to Azure App Service with a CI-CD pipeline.
+                    It consumes (2) external API's; Stripe.net for payment processing and weatherapi.com
+                    for local weather information.
+                </p>
+                <p>
+                    <a href="https://github.com/brett03112/Code-You-Final-Project" class="github-link" target="_blank">
+                        📁 View Code</a>
+                </p>
+            </div>
+        </section>
     </main>
 </body>
 
