@@ -241,13 +241,22 @@ h2 {
     box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
 }
 
+.skills-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.skills-column {
+    flex: 1;
+}
+
 .skills ul {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: center;
+    justify-content: center; /* Changed to center */
 }
 
 .skills ul li {
