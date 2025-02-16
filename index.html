@@ -1,19 +1,26 @@
+<!-- Declares HTML5 document type and sets language to English with document role for accessibility -->
 <!DOCTYPE html>
 <html lang="en" role="document">
 
 <head>
+    <!-- Character encoding and responsive viewport settings -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume</title>
+    <!-- External CSS libraries for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Custom styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- Profile image section with container for styling -->
     <div id="image-container">
         <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
     </div>
+    <!-- Main content container -->
     <main class="container" role="main">
+        <!-- Header section with animation effects -->
         <section class="header animate__animated animate__fadeIn" role="banner">
             <h1 class="animate__animated animate__pulse animate__infinite" role="heading" aria-level="1">Brett Smith
             </h1>
@@ -26,6 +33,7 @@
                     aria-label="GitHub Profile of Brett Smith">🔗 GitHub Profile</a>
             </div>
         </section>
+        <!-- Professional summary section -->
         <section class="section" role="region" aria-labelledby="summary-heading">
             <h2 id="summary-heading">👨‍💻 Summary</h2>
             <p>
@@ -40,6 +48,7 @@
                     career transition into software development.</strong>
             </p>
         </section>
+        <!-- Work experience section with detailed job history -->
         <section class="section" role="region" aria-labelledby="work-experience-heading">
             <h2 id="work-experience-heading">💼 Work Experience</h2>
             <div class="item">
@@ -74,6 +83,7 @@
                 </ul>
             </div>
         </section>
+        <!-- Education history section -->
         <section class="section" role="region" aria-labelledby="education-heading">
             <h2 id="education-heading">🎓 Education</h2>
             <div class="item">
@@ -81,8 +91,13 @@
                 <p>June, 1995</p>
                 <h3>Code: You Software Development with C#</h3>
                 <p>December 2024</p>
+                <!-- Software Development Certificate -->
+                <div class="certificate-container">
+                    <img src="./brett_smith-softcert-spring2024.jpg" alt="Code: You Software Development Certificate" class="certificate-img">
+                </div>
             </div>
         </section>
+        <!-- Skills section with two-column layout -->
         <section class="section" role="region" aria-labelledby="skills-heading">
             <h2 id="skills-heading">🚀 Skills</h2>
             <div class="skills-container">
@@ -112,6 +127,7 @@
                 </div>
             </div>
         </section>
+        <!-- Projects section showcasing portfolio work -->
         <section class="section" role="region" aria-labelledby="projects-heading">
             <h2 id="projects-heading">🛠️ Projects</h2>
             <div class="item">
