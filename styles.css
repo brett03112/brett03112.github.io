@@ -222,13 +222,6 @@ h2 {
     animation: fadeIn 1.2s ease-out;
 }
 
-
-/* Email icon prefix for contact links */
-.contact a::before {
-    content: "📧 ";
-}
-
-
 /* Section container styling with fade-in animation */
 .section {
     margin: 20px 0;
