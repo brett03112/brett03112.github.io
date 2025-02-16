@@ -96,6 +96,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Navigation font size and styling */
 .section-nav a {
     color: #2d3e50;
     text-decoration: none;
