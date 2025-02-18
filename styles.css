@@ -1,376 +1,498 @@
-/* Animation for the background gradient movement */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+/*
+ * Matrix-themed Resume Stylesheet
+ * 
+ * A comprehensive stylesheet for a modern, interactive resume featuring:
+ * - Matrix-style video background with overlay effects
+ * - Responsive design with mobile considerations
+ * - Interactive hover effects and animations
+ * - Graduated color scheme with strong contrast
+ * - Accessibility considerations
+ */
 
-
-/* Animation for subtle floating effect */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-
-/* Animation for shining effect across elements */
-@keyframes shine {
-    0% {
-        background-position: -100px;
-    }
-    100% {
-        background-position: 500px;
-    }
-}
-
-
-/* Animation for playful peeking movement */
-@keyframes peek {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(5deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-
-/* Animation for highlighting effect on elements */
-@keyframes highlight {
-    0% {
-        background-position: -100% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-
-/* Base body styles with animated gradient background */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* --- Reset & Global Styles --- */
+/* Reset default browser styles and set box-sizing for predictable layouts */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #1a1a1a;
-    background: linear-gradient(-45deg, #e6e9f0, #d1d9e6, #e2e8f0, #edf2f7);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
 }
 
+/* Base body styles with modern font stack */
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: transparent;
+    overflow-x: hidden;
+    position: relative;
+}
 
-/* Profile image container styling */
-#image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* --- Video Background Setup --- */
+/* Fixed background container for Matrix animation */
+.video-background {
+    position: fixed; /* Fixed positioning to cover entire viewport */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    padding: 20px 0;
+    height: 100%;
+    z-index: -1; /* Place behind content */
+    overflow: hidden; /* Prevent scrollbars */
 }
 
+/* Dark overlay with green gradient for video background */
+.video-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(0, 60, 0, 0.85)); /* Dark to green gradient */
+    mix-blend-mode: multiply; /* Blend mode for better video integration */
+}
 
-/* Navigation styling */
-.section-nav {
+/* Video element styling and positioning */
+.video-background video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(1.8) saturate(1.6) hue-rotate(105deg) contrast(1.1); /* Enhance Matrix green effect */
+}
+
+/* --- Layout Containers --- */
+/* Main content container with responsive padding */
+.container {
+    max-width: 960px; /* Limit width on large screens */
+    margin: 0 auto; /* Center horizontally */
+    padding: 2rem 1rem; /* Consistent spacing */
+}
+
+/* Content section styling with glass-morphism effect */
+.section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 158, 255, 0.3); /* Subtle blue border */
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        /* Depth shadow */ 0 0 40px rgba(0, 255, 0, 0.08); /* Matrix-style green glow */
+    backdrop-filter: blur(10px) brightness(1.2); /* Frosted glass effect */
+}
+
+/* --- Section-specific Gradients --- */
+/* Each section has a unique gradient background for visual hierarchy */
+#summary {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
+    border-left: 3px solid rgba(74, 158, 255, 0.5); /* Accent border */
+}
+
+#work-experience {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
+    border-left: 3px solid rgba(74, 158, 255, 0.5); /* Accent border */
+}
+
+#education {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
+    border-left: 3px solid rgba(74, 158, 255, 0.5); /* Accent border */
+}
+
+#skills {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
+    border-left: 3px solid rgba(74, 158, 255, 0.5); /* Accent border */
+}
+
+#projects {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
+    border-left: 3px solid rgba(74, 158, 255, 0.5); /* Accent border */
+}
+
+/* --- Typography & Text Styling --- */
+
+/* Certificate styling */
+.certificate-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-    margin: 0 auto;
-    flex-wrap: wrap;
+    margin: 1.5rem 0;
 }
 
-/* Navigation font size and styling */
-.section-nav a {
-    color: #2d3e50;
+.certificate-image {
+    max-width: 600px; /* Limit width to prevent overwhelming the page */
+    width: 100%; /* Make responsive */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.certificate-image:hover {
+    transform: scale(1.02); /* Subtle zoom on hover */
+}
+
+/* Section headings with Matrix-green glow effect */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ff00; /* Matrix green */
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #00ff00; /* Green underline */
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow effect */
+}
+
+/* Content item containers */
+.item {
+    margin-bottom: 1.5rem;
+}
+
+/* Subsection titles with matching green theme */
+.item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff; /* Bright white */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* White glow */
+}
+
+/* List styling for content items */
+.item ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.item li {
+    margin-bottom: 0.25rem;
+}
+
+.item p:last-child {
+    margin-bottom: 0;
+}
+
+/* Emphasized text with green glow */
+.item li strong {
+    margin-right: 0.5rem;
+    color: #ffffff; /* Bright white */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    font-size: 1.1rem;
+}
+
+/* --- Interactive Elements --- */
+/* Project link buttons */
+.github-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #4a9eff; /* Blue base color */
+    color: white;
     text-decoration: none;
-    font-size: 1.17em; /* Matches h3 size */
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    border: 1px solid #6ab0ff;
+}
+
+/* Red hover effect for links */
+.github-link:hover {
+    background-color: #ff0000;
+    border-color: #ff3333;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-.section-nav a:hover {
-    background-color: #2d3e50;
+/* --- Header Section --- */
+/* Main header with glass effect */
+.header {
+    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
     color: white;
-    transform: translateY(-2px);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    z-index: 1;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(0, 255, 0, 0.08);
+    backdrop-filter: blur(10px) brightness(1.2);
 }
 
-/* Profile image styling with circular shape and border effects */
+/* Profile image container */
+#image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Circular profile image with intense fire animation */
+#image-container {
+    position: relative;
+}
+
+#image-container::before,
+#image-container::after,
+#image-container > div {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Create the main fire ring */
+#image-container::before {
+    animation: fireRing 3s ease-out infinite;
+    filter: blur(5px);
+}
+
+/* Create swirling flames */
+#image-container::after {
+    animation: swirlingFlames 4s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+/* Add floating sparks */
+@keyframes sparkFloat {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -80%) scale(0.2);
+        opacity: 0;
+    }
+}
+
 #image-container img {
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 500px;
-    width: auto;
+    position: relative;
+    margin-top: 20px;
+    z-index: 2;
+    width: 200px;
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    border: 3px solid #ffffff;
+    border: 2px solid rgba(255, 140, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
 }
 
-
-/* Main content container with card-like appearance */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    border: 1px solid #d1d9e6;
-    animation: fadeIn 1s ease-out;
+@keyframes fireRing {
+    0%,
+    100% {
+        box-shadow:
+            0 0 25px 12px rgba(255, 30, 0, 0.95),
+            0 0 35px 17px rgba(255, 120, 0, 0.85),
+            0 0 45px 22px rgba(255, 180, 0, 0.75),
+            0 0 55px 27px rgba(255, 69, 0, 0.4),
+            inset 0 0 30px 15px rgba(255, 69, 0, 0.6);
+    }
+    50% {
+        box-shadow:
+            0 0 30px 15px rgba(255, 30, 0, 1),
+            0 0 45px 22px rgba(255, 120, 0, 0.9),
+            0 0 60px 30px rgba(255, 180, 0, 0.8),
+            0 0 75px 37px rgba(255, 69, 0, 0.5),
+            inset 0 0 35px 17px rgba(255, 69, 0, 0.7);
+    }
 }
 
+@keyframes swirlingFlames {
+    0%,
+    100% {
+        box-shadow:
+            -15px -15px 30px 8px rgba(255, 30, 0, 0.95),
+            15px 15px 30px 8px rgba(255, 120, 0, 0.9),
+            15px -15px 30px 8px rgba(255, 180, 0, 0.85),
+            -15px 15px 30px 8px rgba(255, 69, 0, 0.8);
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    33% {
+        box-shadow:
+            20px -20px 35px 10px rgba(255, 30, 0, 0.9),
+            -20px 20px 35px 10px rgba(255, 120, 0, 0.85),
+            -20px -20px 35px 10px rgba(255, 180, 0, 0.8),
+            20px 20px 35px 10px rgba(255, 69, 0, 0.75);
+        transform: translate(-50%, -50%) rotate(120deg) scale(1.1);
+    }
+    66% {
+        box-shadow:
+            -25px -25px 40px 12px rgba(255, 30, 0, 0.85),
+            25px 25px 40px 12px rgba(255, 120, 0, 0.8),
+            25px -25px 40px 12px rgba(255, 180, 0, 0.75),
+            -25px 25px 40px 12px rgba(255, 69, 0, 0.7);
+        transform: translate(-50%, -50%) rotate(240deg) scale(1.05);
+    }
+}
 
-/* Animation for smooth fade-in effect */
-@keyframes fadeIn {
+/* Add floating particles */
+.fire-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 140, 0, 0.8);
+    border-radius: 50%;
+    animation: sparkFloat 2s ease-out infinite;
+}
+
+/* Main title styling */
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    z-index: 2;
+    position: relative;
+}
+
+/* Navigation container */
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 2;
+    position: relative;
+}
+
+/* Navigation links and contact info */
+.contact a,
+.contact span {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: linear-gradient(145deg, rgba(61, 61, 61, 0.9), rgba(71, 71, 71, 0.9));
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Red hover effect for navigation */
+.contact a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+    border-color: #ff0000;
+    background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
+    color: #ff3333;
+    transition: all 0.3s ease;
+}
+
+/* --- Skills Grid Layout --- */
+/* Responsive two-column grid for skills */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 1.5rem; /* Spacing between columns */
+}
+
+/* Skills list container */
+.skills-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Interactive skill items with hover effects */
+.skills-column li {
+    background: linear-gradient(145deg, rgba(61, 61, 61, 0.95), rgba(71, 71, 71, 0.95));
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Text glow */
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: /* Smooth transitions for hover effects */
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.3s ease;
+    cursor: pointer; /* Indicate interactivity */
+}
+
+/* Hover state for skill items with red accent */
+.skills-column li:hover {
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3); /* Red glow */
+    border-color: #ff0000;
+    background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
+    color: #ff3333; /* Bright red text */
+    transition: all 0.3s ease;
+}
+
+/* --- Decorative Wave Effects --- */
+/* Wave SVG containers */
+.header::before,
+.header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-size: 100% auto;
+    z-index: 1;
+}
+
+/* Top wave */
+.header::before {
+    top: -30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231e3c72' fill-opacity='1' d='M0,96L48,117.3C96,139,192,181,288,197.3C384,213,480,203,576,186.7C672,171,768,149,864,144C960,139,1056,149,1152,149.3C1248,149,1344,139,1392,133.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Bottom wave (flipped) */
+.header::after {
+    bottom: -30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231a1a1a' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,144C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    transform: scaleY(-1);
+}
+
+/* --- Animations --- */
+/* Slide-in animation for sections */
+@keyframes slideInFromLeft {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateX(-50px); /* Start from left */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0); /* End at natural position */
     }
 }
 
-
-/* Heading styles with shadow effects */
-h1,
-h2 {
-    color: #2d3e50;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+/* Animation class for sections */
+.animate-slide-in {
+    animation: slideInFromLeft 0.5s ease-out forwards;
 }
 
-
-/* Header section with gradient background and animations */
-.header {
-    text-align: center;
-    background: linear-gradient(145deg, #2d3e50, #34495e);
-    padding: 25px;
-    border-radius: 8px;
-    margin: -20px -20px 20px -20px;
-    animation: slideInDown 1s ease-out;
-}
-
-
-/* Main title styling with animation effects */
-.header h1 {
-    margin: 10px 0;
-    color: #ffffff;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s infinite;
-}
-
-
-/* Contact information section layout */
-.contact {
-    margin: 15px 0;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: #ffffff;
-}
-
-
-/* Contact links styling with hover effects */
-.contact a {
-    color: #ffffff;
-    text-decoration: none;
-    display: block;
-    margin: 4px 0;
-    transition: all 0.3s ease;
-    padding: 5px 10px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    animation: fadeIn 1s ease-out;
-}
-
-
-/* Hover effects for contact links */
-.contact a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    animation: pulse 1s;
-}
-
-
-/* Contact text elements styling */
-.contact span {
-    padding: 5px 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    animation: fadeIn 1.2s ease-out;
-}
-
-/* Section container styling with fade-in animation */
-.section {
-    margin: 20px 0;
-    animation: fadeInUp 1s ease-out;
-    opacity: 1;
-}
-
-
-/* Section headings with bottom border */
-.section h2 {
-    margin-bottom: 15px;
-    border-bottom: 3px solid #2d3e50;
-    padding-bottom: 8px;
-    font-size: 1.8em;
-    color: #2d3e50;
-}
-
-
-/* Individual content item styling */
-.item {
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-    animation: fadeIn 1.5s ease-out;
-}
-
-
-/* Hover effect for content items */
-.item:hover {
-    transform: translateX(10px);
-}
-
-
-/* Subheading styles for content items */
-.item h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #555;
-}
-
-
-/* Paragraph styling within content items */
-.item p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-
-/* GitHub link styling with gradient and animation */
-.github-link {
-    display: inline-block;
-    color: #2d3e50;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 500;
-    background: linear-gradient(90deg, rgba(45, 62, 80, 0.1) 0%, rgba(45, 62, 80, 0.2) 50%, rgba(45, 62, 80, 0.1) 100%);
-    background-size: 200% 100%;
-    animation: highlight 2s linear infinite;
-    transition: all 0.3s ease;
-}
-
-
-/* Enhanced hover effect for GitHub links */
-.github-link:hover {
-    color: white;
-    background: linear-gradient(90deg, #2d3e50 0%, #34495e 50%, #2d3e50 100%);
-    background-size: 200% 100%;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
-}
-
-
-/* Two-column layout for skills section */
-.skills-container {
-    display: flex;
-    gap: 1rem;
-}
-
-
-/* Individual column styling for skills */
-.skills-column {
-    flex: 1;
-}
-
-
-/* Skills list container styling */
-.skills ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center; /* Changed to center */
-}
-
-
-/* Individual skill item styling with animations */
-.skills ul li {
-    display: inline-block;
-    background: linear-gradient(145deg, #2d3e50, #34495e);
-    color: #fff;
-    padding: 8px 15px;
-    margin: 6px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(45, 62, 80, 0.15);
-    animation: fadeIn 2s ease-out;
-    position: relative;
-    overflow: hidden;
-    transform-origin: center;
-}
-
-
-/* Hover effect for skill items */
-.skills ul li:hover {
-    box-shadow: 0 4px 12px rgba(45, 62, 80, 0.25);
-}
-
-
-/* Certificate image styling */
-.certificate-container {
-    margin: 10px 0;
-}
-/* Certificate image styling and responsive size adjustment */
-.certificate-img {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(45, 62, 80, 0.15);
-    display: block;
-}
-
-/* Shining animation overlay for skill items */
-.skills ul li::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-    pointer-events: none;
+/* --- Responsive Design --- */
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column; /* Stack navigation vertically */
+    }
+    #image-container img {
+        width: 150px; /* Smaller profile image */
+        height: 150px;
+    }
 }
