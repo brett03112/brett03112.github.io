@@ -68,16 +68,21 @@ body {
 
 /* Video element styling and positioning */
 .video-background video {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     filter: brightness(2.2) saturate(1.8) hue-rotate(105deg) contrast(1.2); /* Enhanced Matrix green effect */
+}
+
+/* Ensure video background works on mobile */
+@media (max-width: 768px) {
+    .video-background video {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
 }
 
 /* --- Layout Containers --- */
