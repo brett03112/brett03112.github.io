@@ -1,145 +1,170 @@
-// Main JavaScript functionality
+/**
+ * Main JavaScript functionality for the interactive resume website
+ * This file handles all dynamic behaviors including:
+ * 1. Section animations using Intersection Observer
+ * 2. Interactive skill items with click effects
+ * 3. Smooth scrolling navigation
+ * 4. Active section highlighting during scroll
+ */
+
+// Wait for DOM to be fully loaded before running any JavaScript
 document.addEventListener('DOMContentLoaded', function () {
-    // Intersection Observer for Section Animations
-    // Adds slide-in animation when sections come into view
+    /**
+     * Section Animations Implementation
+     * Uses the Intersection Observer API to detect when sections enter the viewport
+     * and triggers a slide-in animation effect
+     */
     const sections = document.querySelectorAll('.section');
 
+    // Create an observer instance with custom options
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Add animation class when section becomes visible
                 entry.target.classList.add('animate-slide-in');
-                observer.unobserve(entry.target); // Stop observing once animated
+                // Stop observing after animation is triggered to prevent re-animation
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        rootMargin: '-50px 0px -50px 0px', // Trigger animation a bit before the section is fully visible. Experiment!
+        // Margin around the root (viewport)
+        // Negative values mean the observer will trigger slightly before the section is fully visible
+        rootMargin: '-50px 0px -50px 0px',
     });
 
+    // Start observing all section elements
     sections.forEach(section => {
         observer.observe(section);
     });
 
-    // Interactive Skill Items
-    // Adds hover effects and temporary highlight on click
+    /**
+     * Interactive Skills Section
+     * Adds interactive behavior to skill items:
+     * - Highlights skills on click
+     * - Automatically removes highlight after 2 seconds
+     */
     const skills = document.querySelectorAll('.skills-column li');
 
     skills.forEach(skill => {
         skill.addEventListener('click', function () {
-            // Simple example: Toggle a 'highlight' class
+            // Toggle highlight class for visual feedback
             this.classList.toggle('highlight');
 
-            // You could do more complex things here, like:
-            // - Show a tooltip with more info about the skill
-            // - Filter projects based on the selected skill (if you had a project filter)
-            // - Send an event to Google Analytics to track skill clicks
+            // Future enhancement possibilities:
+            // - Add tooltips with detailed skill information
+            // - Implement skill filtering for projects
+            // - Track skill interactions with analytics
 
-            //Simple animation to "un-toggle" the skill
+            // Remove highlight after 2 seconds
             setTimeout(() => {
                 this.classList.toggle('highlight');
-            }, 2000) //remove highlight after two seconds.
-
+            }, 2000);
         });
     });
 
-    // Smooth Scrolling Navigation
-    // Handles anchor links with smooth scrolling behavior
-
-    // Select all links that start with '#' (hash links)
+    /**
+     * Smooth Scrolling Navigation
+     * Implements smooth scrolling behavior for navigation links:
+     * 1. Prevents default jump behavior
+     * 2. Calculates target position
+     * 3. Smoothly scrolls to target section
+     * 4. Updates active section highlighting
+     */
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
-            event.preventDefault();  // Prevent the default jump
+            event.preventDefault();  // Prevent default jump behavior
 
-            //check the anchor string (minus the hash).  Make it work
-            // even without id on element
+            // Extract target section ID from href attribute
             const targetId = this.getAttribute('href');
 
-            const idStringArr = targetId.split("-")
-            idStringArr.pop() //remove "-heading" text.
-            let idString = ""
-            //if we are targeting a section add "-heading" back
+            // Process the ID to handle special cases with "-heading" suffix
+            const idStringArr = targetId.split("-");
+            idStringArr.pop(); // Remove "heading" suffix
+            let idString = "";
+
+            // Handle special section IDs that need to retain "-heading"
             if (targetId === "#summary-heading"
                 || targetId === "#work-experience-heading"
                 || targetId === "#education-heading"
                 || targetId === "#skills-heading"
                 || targetId === "#projects-heading") {
-
-                idString = targetId.substring(1); //just keep the orginal string
-
+                idString = targetId.substring(1); // Keep original ID
             } else {
-                //loop through id's to append id string
+                // Reconstruct ID for other cases
                 for (let i = 0; i < idStringArr.length; i++) {
-                    idString = idString + idStringArr[i]
-                    if (i !== idStringArr.length - 1) { //if last iteration, no "-"
-                        idString = idString + "-"
+                    idString = idString + idStringArr[i];
+                    if (i !== idStringArr.length - 1) {
+                        idString = idString + "-";
                     }
                 }
             }
 
-            //console.log(idString)
-
             const targetElement = document.getElementById(idString);
 
             if (targetElement) {
-                // Calculate the top offset, accounting for any fixed header
+                // Calculate scroll position accounting for any fixed headers
                 const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY;
 
-                //scroll to target section
+                // Perform smooth scroll
                 window.scrollTo({
                     top: offsetTop,
-                    behavior: 'smooth' // The smooth scrolling part!
+                    behavior: 'smooth'
                 });
 
-                // --- Highlight Active Section ---
+                // Update active section highlighting
                 highlightActiveSection();
             }
         });
     });
 
-    // Active Section Highlighting
-    // Updates navigation to show current section while scrolling
+    /**
+     * Active Section Highlighting
+     * Tracks the current visible section during scrolling and updates navigation accordingly:
+     * 1. Removes active state from all navigation links
+     * 2. Calculates which section is currently in view
+     * 3. Adds active state to corresponding navigation link
+     * 4. Handles special case for homepage/index
+     */
     function highlightActiveSection() {
-        const sections = document.querySelectorAll('.section');  // Or a more specific selector
+        const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.contact a[href^="#"]');
 
-        //remove any active styles from nav links
+        // Reset all active states
         navLinks.forEach(link => {
             link.classList.remove('active');
-        })
+        });
 
+        // Get current scroll position
         let top = window.scrollY;
 
+        // Check each section's position
         sections.forEach(sec => {
-            let offset = sec.offsetTop - 150;  // Adjust this offset as needed
+            let offset = sec.offsetTop - 150;  // Offset for better UX
             let height = sec.offsetHeight;
-            let id = sec.getAttribute('id') + "-heading"; //this accounts for the extra "-heading" on links
-            //  console.log(id)
+            let id = sec.getAttribute('id') + "-heading";
+
+            // If section is in viewport
             if (top >= offset && top < offset + height) {
                 navLinks.forEach(links => {
-                    //add active style to the proper link
+                    // Highlight corresponding navigation link
                     if (links.getAttribute('href').includes(id)) {
                         links.classList.add('active');
                     }
-                    //special handling if no active class found and
-                    // the url endswith index.html, default active
-                    // summary.
+                    // Special handling for homepage
                     else if (document.URL.endsWith("index.html") || document.URL.endsWith("/")) {
-
-                        //default the first item (summary to have class).
+                        // Default to summary section on homepage
                         if (links.getAttribute('href') === "#summary-heading") {
                             links.classList.add('active');
                         }
-
                     }
-
                 });
-            };
+            }
         });
-
     }
 
-    //run active section highligher on scroll and initial page load
+    // Initialize active section highlighting
     window.addEventListener('scroll', highlightActiveSection);
-    highlightActiveSection();
+    highlightActiveSection(); // Run once on page load
 });

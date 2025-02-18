@@ -1,42 +1,89 @@
-<!-- 
-    Resume Website - A modern, interactive resume with Matrix-style animation
-    Features:
-    - Responsive design that works on all devices
-    - Matrix-style video background with overlay effects
-    - Interactive sections with hover animations
-    - Smooth scrolling navigation
-    - Accessibility features with ARIA labels
+<!--
+    Interactive Resume Website with Matrix Theme
+    ==========================================
+    
+    Architecture Overview:
+    ---------------------
+    1. HTML Structure:
+       - Semantic HTML5 elements for better SEO and accessibility
+       - ARIA roles and labels for screen readers
+       - Modular sections for easy maintenance
+    
+    2. Visual Elements:
+       - Matrix-style video background with overlay effects
+       - Animated profile image with fire particle effects
+       - Interactive sections with hover and click animations
+       - Responsive design adapting to all screen sizes
+    
+    3. Interactive Features:
+       - Smooth scrolling navigation
+       - Active section highlighting
+       - Interactive skill items with click effects
+       - Animated section transitions
+    
+    4. Accessibility:
+       - ARIA labels and roles
+       - Semantic HTML structure
+       - High contrast text
+       - Alt text for images
+    
+    5. Performance:
+       - Preconnect to Google Fonts
+       - Optimized video background
+       - Efficient CSS animations
+       - External JavaScript for better caching
 -->
+
 <!DOCTYPE html>
 <html lang="en" role="document">
 
 <head>
-    <meta charset="UTF-8" /> <!-- Character encoding for proper text rendering -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport settings -->
+    <!-- Character encoding and viewport configuration for proper rendering -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume</title>
 
-    <!-- Google Fonts - Inter for modern, clean typography -->
+    <!-- 
+        Typography Setup:
+        - Preconnect to Google Fonts servers for faster loading
+        - Inter font family with multiple weights for visual hierarchy
+        - Weights: 400 (normal), 600 (semi-bold), 700 (bold)
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- External CSS Libraries -->
+    <!-- 
+        Stylesheets:
+        1. Animate.css - External library for section animations
+        2. Custom styles - Main stylesheet for layout and theming
+    -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- For section animations -->
-    <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Matrix Video Background Container -->
+    <!-- 
+        Matrix Video Background:
+        - Fixed position container with overlay
+        - Autoplay, muted, and looping video
+        - Green tint effect applied via CSS
+    -->
     <div class="video-background">
-        <!-- Autoplaying, muted, looping video for Matrix effect -->
         <video autoplay muted loop id="matrix-bg">
             <source src="matrix_animation.mp4" type="video/mp4">
         </video>
     </div>
-    <!-- Profile Image Section -->
+
+    <!-- 
+        Profile Image Section:
+        - Circular image with fire animation effect
+        - Particle system for enhanced visual appeal
+        - Particles positioned with varying delays for natural effect
+    -->
     <div id="image-container">
         <div class="fire-particles">
+            <!-- Individual particles with staggered animation delays -->
             <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
             <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
@@ -49,13 +96,23 @@
         <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
     </div>
 
-    <!-- Header Section with Navigation -->
+    <!-- 
+        Header Section:
+        - Contains main navigation and contact information
+        - Glass morphism effect applied via CSS
+        - Responsive layout that adapts to screen size
+    -->
     <header class="header" role="banner">
         <div class="container">
             <h1>Brett Smith</h1>
-            <!-- Navigation and Contact Links -->
+            <!-- 
+                Navigation and Contact Links:
+                - Smooth scrolling navigation
+                - External links open in new tabs
+                - ARIA labels for accessibility
+                - Interactive hover effects
+            -->
             <div class="contact">
-                <!-- Each link has ARIA labels for accessibility -->
                 <a href="#summary-heading" aria-label="Go to Summary Section of Brett Smith">Summary</a>
                 <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
                 <span role="text">📱 Phone: (606) xxx-xxxx 'Please ask for my phone number!!"</span>
@@ -67,16 +124,25 @@
                 <a href="#education-heading" aria-label="Go to Education Section of Brett Smith">Education</a>
                 <a href="#skills-heading" aria-label="Go to Skills Section of Brett Smith">Skills</a>
                 <a href="#projects-heading" aria-label="Go to Projects Section of Brett Smith">Projects</a>
-
             </div>
         </div>
     </header>
-    <!-- Main Content Area -->
+
+    <!-- 
+        Main Content Area:
+        - Organized in semantic sections
+        - Each section has unique styling and animations
+        - Glass morphism effect on section containers
+    -->
     <main class="container" role="main">
-        <!-- Summary Section -->
+        <!-- 
+            Summary Section:
+            - Professional overview
+            - Highlights key qualifications
+            - Strong typography for emphasis
+        -->
         <section class="section" id="summary" aria-labelledby="summary-heading">
             <h2 class="section-title" id="summary-heading">👨‍💻 Summary</h2>
-            <!-- Professional summary with key qualifications -->
             <p>
                 <strong>Junior developer specializing in .NET, HTML, CSS, JavaScript, and full-stack development.
                     Seeking a full-time Software
@@ -89,10 +155,15 @@
                     career transition into software development.</strong>
             </p>
         </section>
-        <!-- Work Experience Section -->
+
+        <!-- 
+            Work Experience Section:
+            - Chronological work history
+            - Detailed responsibilities
+            - Emphasis on transferable skills
+        -->
         <section class="section" id="work-experience" aria-labelledby="work-experience-heading">
             <h2 class="section-title" id="work-experience-heading">💼 Work Experience</h2>
-            <!-- Current Position -->
             <div class="item">
                 <h3>Utility Systems Supervisor</h3>
                 <ul>
@@ -121,10 +192,15 @@
                 </ul>
             </div>
         </section>
-        <!-- Education Section -->
+
+        <!-- 
+            Education Section:
+            - Academic credentials
+            - Professional certifications
+            - Interactive certificate display
+        -->
         <section class="section" id="education" aria-labelledby="education-heading">
             <h2 class="section-title" id="education-heading">🎓 Education</h2>
-            <!-- Educational background with dates -->
             <div class="item">
                 <h3>High School Diploma/ Lincoln County High School, Stanford, KY</h3>
                 <p>June, 1995</p>
@@ -136,12 +212,17 @@
                 </div>
             </div>
         </section>
-        <!-- Skills Section - Two Column Layout -->
+
+        <!-- 
+            Skills Section:
+            - Two-column responsive grid
+            - Interactive skill items
+            - Visual categorization with icons
+        -->
         <section class="section" id="skills" aria-labelledby="skills-heading">
             <h2 class="section-title" id="skills-heading">🚀 Skills</h2>
-            <!-- Grid container for skills -->
             <div class="skills-container">
-                <!-- Left Column - Technical Skills -->
+                <!-- Technical Skills Column -->
                 <div class="skills-column">
                     <ul>
                         <li>⚡ HTML</li>
@@ -154,6 +235,7 @@
                         <li>🐧 Linux/Bash/Linux Administration</li>
                     </ul>
                 </div>
+                <!-- Professional Skills Column -->
                 <div class="skills-column">
                     <ul>
                         <li>🪟 Windows/PowerShell</li>
@@ -168,10 +250,15 @@
                 </div>
             </div>
         </section>
-        <!-- Projects Section -->
+
+        <!-- 
+            Projects Section:
+            - Showcase of technical work
+            - Links to live demos and source code
+            - Detailed project descriptions
+        -->
         <section class="section" id="projects" aria-labelledby="projects-heading">
             <h2 class="section-title" id="projects-heading">🛠️ Projects</h2>
-            <!-- Project showcase with links -->
             <div class="item">
                 <h3>Code: You "Holiday Dessert App"</h3>
                 <p>
@@ -196,7 +283,13 @@
             </div>
         </section>
     </main>
-    <!-- JavaScript for Interactivity -->
+
+    <!-- 
+        JavaScript Integration:
+        - External script for better caching
+        - Handles all interactive features
+        - Loaded at end of body for better performance
+    -->
     <script src="scripts.js"></script>
 </body>
 
