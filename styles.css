@@ -493,6 +493,19 @@ body {
     }
     #image-container img {
         width: 150px; /* Smaller profile image */
-        height: 150px;
+        height: auto; /* Maintain aspect ratio */
+        max-width: 80%; /* Prevent image from being too large */
+    }
+
+    /* Ensure skills maintain two columns */
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr); /* Force two columns */
+        gap: 1rem; /* Slightly reduce gap on mobile */
+    }
+
+    /* Adjust skill items for better mobile display */
+    .skills-column li {
+        padding: 0.4rem 0.8rem; /* Slightly reduce padding */
+        font-size: 0.95rem; /* Slightly smaller font */
     }
 }
