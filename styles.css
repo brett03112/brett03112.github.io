@@ -449,6 +449,11 @@ body {
     cursor: pointer; /* Indicate interactivity */
 }
 
+/* Emphasized text for skill items */
+#projects em {
+    color: #ff0000;
+}
+
 /* Hover state for skill items with red accent */
 .skills-column li:hover {
     transform: translateY(-3px); /* Slight lift effect */

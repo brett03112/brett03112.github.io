@@ -8,7 +8,9 @@ A modern, interactive resume website built with HTML, CSS, and JavaScript, featu
 - Interactive sections with hover animations
 - Smooth scrolling navigation
 - Matrix-style video background with overlay effects
-- Accessibility features with ARIA labels
+- Accessibility features with ARIA labels and roles
+- Custom font from Google Fonts (Inter)
+- Animated elements using Animate.css for a polished look
 
 ## How to View
 
