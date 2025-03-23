@@ -1,37 +1,7 @@
-<!--
-    Interactive Resume Website with Matrix Theme
-    ==========================================
-    
-    Architecture Overview:
-    ---------------------
-    1. HTML Structure:
-       - Semantic HTML5 elements for better SEO and accessibility
-       - ARIA roles and labels for screen readers
-       - Modular sections for easy maintenance
-    
-    2. Visual Elements:
-       - Matrix-style video background with overlay effects
-       - Animated profile image with fire particle effects
-       - Interactive sections with hover and click animations
-       - Responsive design adapting to all screen sizes
-    
-    3. Interactive Features:
-       - Smooth scrolling navigation
-       - Active section highlighting
-       - Interactive skill items with click effects
-       - Animated section transitions
-    
-    4. Accessibility:
-       - ARIA labels and roles
-       - Semantic HTML structure
-       - High contrast text
-       - Alt text for images
-    
-    5. Performance:
-       - Preconnect to Google Fonts
-       - Optimized video background
-       - Efficient CSS animations
-       - External JavaScript for better caching
+<!-- 
+    Brett Smith's Resume - Skills Section
+    This HTML document outlines the skills section of Brett Smith's resume.
+    It includes a video background, profile image, and a list of technical and professional skills.
 -->
 
 <!DOCTYPE html>
@@ -41,7 +11,7 @@
     <!-- Character encoding and viewport configuration for proper rendering -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brett Smith's Resume</title>
+    <title>Brett Smith's Resume - Skills</title>
 
     <!-- 
         Typography Setup:
@@ -113,7 +83,7 @@
                 - Interactive hover effects
             -->
             <div class="contact">
-                <a href="#summary-heading" aria-label="Go to Summary Section of Brett Smith">👨‍💻 Summary</a>
+                <a href="index.html" aria-label="Go to Home Page of Brett Smith">🏠 Home</a>
                 <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
                 <span role="text">📱 Phone: (606) xxx-xxxx 'Please ask for my phone number!!"</span>
                 <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
@@ -136,26 +106,41 @@
     -->
     <main class="container" role="main">
         <!-- 
-            Summary Section:
-            - Professional overview
-            - Highlights key qualifications
-            - Strong typography for emphasis
+            Skills Section:
+            - Two-column responsive grid
+            - Interactive skill items
+            - Visual categorization with icons
         -->
-        <section class="section" id="summary" aria-labelledby="summary-heading">
-            <h2 class="section-title" id="summary-heading">👨‍💻 Summary</h2>
-            <p>
-                <strong>Junior developer specializing in .NET, HTML, CSS, and Python with a passion for problem-solving.
-                    Seeking a full-time Software
-                    Developer or Data Analyst position, open to remote, hybrid, or on-site opportunities. Eager to build
-                    robust and
-                    scalable applications
-                    using the .NET stack and Python for data analysis and always ready to learn new technologies. Brings
-                    nearly 16 years of experience from the
-                    Department of
-                    Justice/Bureau of Prisons as a Utility Systems Supervisor. A passion for technology and
-                    problem-solving drives my
-                    career transition into software development.</strong>
-            </p>
+        <section class="section" id="skills" aria-labelledby="skills-heading">
+            <h2 class="section-title" id="skills-heading">🚀 Skills</h2>
+            <div class="skills-container">
+                <!-- Technical Skills Column -->
+                <div class="skills-column">
+                    <ul>
+                        <li>⚡ HTML</li>
+                        <li>🎨 CSS</li>
+                        <li>📜 JavaScript</li>
+                        <li>🐍 Python</li>
+                        <li>🔷 C# and .NET 6-9</li>
+                        <li>💾 MS SQL Server, PostGres, Sqlite3, MongoDB, MySQL</li>
+                        <li>📚 Git and GitHub/GitHub Pages/ GitLab/ GitHub Actions</li>
+                        <li>🐧 Linux/Bash/Linux Administration</li>
+                    </ul>
+                </div>
+                <!-- Professional Skills Column -->
+                <div class="skills-column">
+                    <ul>
+                        <li>🪟 Windows/PowerShell</li>
+                        <li>📝 Visual Studio Code</li>
+                        <li>🎯 Visual Studio</li>
+                        <li>🏎️ Rider</li>
+                        <li>☁️ Azure/ Azure Functions/ Azure Storage/ Azure App Service</li>
+                        <li>📊 Project Management</li>
+                        <li>👮 15+ years Federal Law Enforcement/DOJ</li>
+                        <li>🎤 Public Speaking</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
