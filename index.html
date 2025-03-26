@@ -10,8 +10,12 @@
        - Modular sections for easy maintenance
     
     2. Visual Elements:
-       - Matrix-style video background with overlay effects
-       - Animated profile image with fire particle effects
+       - Glass morphism effect applied via CSS
+       - Function code display on the left side with computer screen styling
+       - Console output on the right side with dark terminal styling
+       - Typewriter effect for both code and console with blinking cursors
+       - Informal docstrings at the top of each function
+       - Profile image with fire animation
        - Interactive sections with hover and click animations
        - Responsive design adapting to all screen sizes
     
@@ -19,7 +23,6 @@
        - Smooth scrolling navigation
        - Active section highlighting
        - Interactive skill items with click effects
-       - Animated section transitions
     
     4. Accessibility:
        - ARIA labels and roles
@@ -29,7 +32,6 @@
     
     5. Performance:
        - Preconnect to Google Fonts
-       - Optimized video background
        - Efficient CSS animations
        - External JavaScript for better caching
 -->
@@ -63,7 +65,13 @@
 </head>
 
 <body>
-    <!-- Background has been replaced with a light grey color in CSS -->
+    <!-- 
+        Background Features:
+        - Light grey background color
+        - Left side: Function code in a white computer screen-like box
+        - Right side: Console output in a dark terminal with white text
+        - Both sides feature typewriter effects and blinking cursors
+    -->
 
     <!-- 
         Profile Image Section:
@@ -156,6 +164,15 @@
         - Loaded at end of body for better performance
     -->
     <script src="scripts.js"></script>
+    <!-- 
+        Console background script:
+        - Creates function display on left and console output on right
+        - Implements typewriter effect with 300ms delay between lines
+        - Adds docstrings to functions explaining what they do
+        - Shows error handling in the debugMeIfYouCan function
+        - Delays console output until function code is fully displayed
+    -->
+    <script src="console-background.js"></script>
 </body>
 
 </html>
