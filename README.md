@@ -1,6 +1,6 @@
 # Brett Smith's Resume Site
 
-A modern, interactive resume website built with HTML, CSS, and JavaScript, featuring a Matrix-style animation background.
+A modern, interactive resume website built with HTML, CSS, and JavaScript, featuring funny JavaScript functions that print to an on-screen console.
 
 ## Features
 
@@ -15,10 +15,6 @@ A modern, interactive resume website built with HTML, CSS, and JavaScript, featu
 ## How to View
 
 Visit the live site at: <https://brett03112.github.io>
-
-## Credits
-
-The Matrix background animation used in this project was created by ChristianBodhi and is sourced from [Pixabay](https://pixabay.com/videos/matrix-computer-network-47802/). This content is free to use under the Pixabay Content License.
 
 ## Technologies Used
 
