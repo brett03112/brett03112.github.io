@@ -7,7 +7,7 @@ A modern, interactive resume website built with HTML, CSS, and JavaScript, featu
 - Responsive design that works on all devices
 - Interactive sections with hover animations
 - Smooth scrolling navigation
-- Matrix-style video background with overlay effects
+- Typewriter effect for JavaScript code snippets with console output
 - Accessibility features with ARIA labels and roles
 - Custom font from Google Fonts (Inter)
 - Animated elements using Animate.css for a polished look
