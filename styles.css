@@ -1,17 +1,9 @@
-/*
- * Brett Smith's Resume
- * styles.css
- * A modern, responsive resume with a background of a funny JavaScript code snippet on the left side and a console output on the right side.
- * The design features:
- * - Glass-morphism effect for the main content sections
- * - Fire animation for the profile image
- * - Computer screen-like box for function code on the left
- * - Dark terminal-like console with white text on the right
- * - Typewriter effect with blinking cursor for both code and console
+/* styles.css - Main stylesheet for Brett Smith's Resume Website
+ * A modern, responsive resume with glass-morphism effects and interactive elements
+ * Author: Brett Smith
  */
 
-/* --- Reset & Global Styles --- */
-/* Reset default browser styles and set box-sizing for predictable layouts */
+/* Base styles and CSS reset */
 *,
 *::before,
 *::after {
@@ -20,449 +12,186 @@
     padding: 0;
 }
 
-/* Base body styles with modern font stack */
+/* Global styles and typography */
 body {
     font-family: "Inter", sans-serif;
-    line-height: 1.4; /* Reduced line height */
+    line-height: 1.4;
     color: #ffffff;
-    background-color: #d3d3d3; /* Light grey background color */
+    background-color: #d3d3d3;
     overflow-x: hidden;
     position: relative;
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    font-size: 0.98rem; /* Increased by 15% from 0.85rem */
+    min-height: 100vh;
+    font-size: 0.98rem;
 }
 
-/* --- Background Setup --- */
-/* Left and right code display containers */
-.top-code-container,
-.bottom-console-container {
-    position: fixed;
-    z-index: -1; /* Behind all content */
-    pointer-events: none; /* Don't interfere with page interaction */
-    padding: 20px;
-    overflow: hidden;
-    opacity: 0.8;
-    background-color: transparent;
-}
-
-/* Left side container for function code display */
-.top-code-container {
-    top: 0;
-    left: 0;
-    width: 25%; /* Limit width to 25% of the screen */
-    height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Allow vertical scrolling */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    max-width: 25%; /* Ensure it doesn't exceed 25% of screen width */
-}
-
-/* Right side container for console output display */
-.bottom-console-container {
-    top: 0;
-    right: 0;
-    width: 25%; /* Limit width to 25% of the screen */
-    height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Allow vertical scrolling */
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-/* Computer screen styling for left side function code container */
-.top-code-container .top-code-text {
-    background-color: white;
-    border-radius: 8px;
-    border: 2px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    margin: 10px;
-    position: relative;
-    overflow: hidden;
-    display: block; /* Changed from inline-block to block */
-    width: calc(100% - 20px); /* Fixed width based on container */
-    height: auto; /* Allow height to adjust to content */
-    box-sizing: border-box; /* Include padding and border in the width */
-}
-
-/* Dark terminal styling for right side console container */
-.bottom-console-container .bottom-console-text {
-    background-color: #000000; /* Black background */
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
-    margin: 10px;
-    position: relative;
-    color: #ffffff; /* White text */
-    background-image: url("console.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 30px; /* Add padding to account for the console bezel */
-    filter: brightness(0.7); /* Make the console darker */
-}
-
-/* Add blinking cursor and C:\ prompt to console output */
-.bottom-console-text::after {
-    content: "C:\\> ";
-    display: inline-block;
-    animation: blink-cursor 1s step-end infinite;
-    color: #ffffff; /* White cursor */
-}
-
-@keyframes blink-cursor {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Main content containers that should block the background text */
+/* Core layout containers */
 .header,
 .section,
 #image-container {
     position: relative;
-    z-index: 1; /* Above the background text */
-    background-color: transparent; /* Keep existing background */
+    z-index: 1;
+    background-color: transparent;
 }
 
-/* Function code text styling with syntax highlighting */
-.top-code-text {
-    font-family: "Courier New", monospace;
-    color: #000000; /* Black color for maximum contrast */
-    font-size: 14px; /* Increased by 15% from 12px */
-    white-space: pre-wrap; /* Allow text to wrap */
-    line-height: 1.4; /* Reduced line height */
-    font-weight: bold;
-    width: calc(100% - 20px); /* Full width of container minus margins */
-    text-align: left; /* Ensure text is left-aligned */
-    display: block; /* Ensure block display */
-    word-wrap: break-word; /* Break words to prevent overflow */
-    overflow-wrap: break-word; /* Modern version of word-wrap */
-    position: relative;
-}
-
-/* Add blinking cursor to the function code display */
-.top-code-text::after {
-    content: "|";
-    display: inline-block;
-    animation: blink-cursor 1s step-end infinite;
-    color: #000000;
-    font-weight: bold;
-}
-
-/* Console output text styling with white text and subtle glow */
-.bottom-console-text {
-    font-family: "Courier New", monospace;
-    font-size: 14px; /* Increased by 15% from 12px */
-    white-space: pre-wrap;
-    line-height: 1.4; /* Reduced line height */
-    font-weight: bold;
-    width: calc(100% - 20px); /* Full width of container minus margins */
-    text-align: left; /* Ensure text is left-aligned */
-    color: #ffffff; /* White text */
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); /* Slight glow for better visibility */
-}
-
-/* Syntax highlighting for function code */
-.code-keyword {
-    color: #0000ff; /* Blue for keywords */
-    font-weight: bold;
-}
-
-.code-function {
-    color: #7c0000; /* Dark red for functions */
-    font-weight: bold;
-}
-
-.code-string {
-    color: #a31515; /* Red for strings */
-}
-
-.code-comment {
-    color: #008000; /* Green for comments */
-    font-style: italic;
-}
-
-/* Typewriter effect */
-.typewriter {
-    overflow: hidden;
-    border-right: 2px solid #00aa00; /* Cursor */
-    white-space: nowrap;
-    margin: 0;
-    animation:
-        typing 3.5s steps(40, end),
-        blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-caret {
-    from,
-    to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #00aa00;
-    }
-}
-
-/* Progress bar animation */
-.progress-bar {
-    display: inline-block;
-    font-family: "Courier New", monospace;
-    color: #00aa00;
-    margin-bottom: 8px; /* Reduced margin */
-    animation: progress-animation 5s linear forwards;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-@keyframes progress-animation {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-/* --- Layout Containers --- */
-/* Main content container with responsive padding */
+/* Main content wrapper */
 .container {
-    max-width: 920px; /* Increased by 15% from 800px */
-    margin: 0 auto; /* Center horizontally */
-    padding: 1.7rem 0.9rem; /* Increased padding by 15% */
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.7rem 0.9rem;
 }
 
-/* Content section styling with glass-morphism effect */
+/* Section styling with glass-morphism effect */
 .section {
-    margin-bottom: 1.7rem; /* Increased by 15% */
-    padding: 2.1rem; /* Increased by 15% */
-    border-radius: 9px; /* Increased by 15% */
-    border: 1px solid rgba(74, 158, 255, 0.3); /* Subtle blue border */
+    margin-bottom: 1.7rem;
+    padding: 2.1rem;
+    border-radius: 9px;
+    border: 1px solid rgba(74, 158, 255, 0.3);
     box-shadow:
         0 3px 4px rgba(0, 0, 0, 0.4),
-        /* Depth shadow */ 0 0 30px rgba(0, 255, 0, 0.08); /* Matrix-style green glow */
-    backdrop-filter: blur(10px) brightness(1.2); /* Frosted glass effect */
+        0 0 30px rgba(0, 255, 0, 0.08);
+    backdrop-filter: blur(10px) brightness(1.2);
 }
 
-/* --- Section-specific Gradients --- */
-/* Each section has a unique gradient background for visual hierarchy */
-#summary {
-    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Thinner accent border */
-}
-
-#work-experience {
-    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Thinner accent border */
-}
-
-#education {
-    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Thinner accent border */
-}
-
-#skills {
-    background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Thinner accent border */
-}
-
+/* Common gradient background for all sections */
+#summary,
+#work-experience,
+#education,
+#skills,
 #projects {
     background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Thinner accent border */
+    border-left: 2px solid rgba(74, 158, 255, 0.5);
 }
 
-/* --- Typography & Text Styling --- */
-
-/* Certificate styling */
-.certificate-container {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0; /* Reduced margin */
-}
-
-.certificate-image {
-    max-width: 500px; /* Reduced max width */
-    width: 100%; /* Make responsive */
-    height: auto;
-    border-radius: 6px; /* Smaller border radius */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Smaller shadow */
-    transition: transform 0.3s ease;
-}
-
-.certificate-image:hover {
-    transform: scale(1.02); /* Subtle zoom on hover */
-}
-
-/* Section headings with Matrix-green glow effect */
+/* Section title styling */
 .section-title {
-    font-size: 1.84rem; /* Increased by 15% from 1.6rem */
+    font-size: 1.84rem;
     font-weight: 700;
-    color: #00ff00; /* Matrix green */
-    margin-bottom: 0.7rem; /* Reduced margin */
-    border-bottom: 2px solid #00ff00; /* Green underline */
+    color: #00ff00;
+    margin-bottom: 0.7rem;
+    border-bottom: 2px solid #00ff00;
     display: inline-block;
-    padding-bottom: 0.2rem; /* Reduced padding */
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Smaller text shadow */
+    padding-bottom: 0.2rem;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
 }
 
-/* Content item containers */
+/* Content item styling */
 .item {
-    margin-bottom: 1rem; /* Reduced margin */
+    margin-bottom: 1rem;
 }
 
-/* Subsection titles with matching green theme */
 .item h3 {
-    font-size: 1.27rem; /* Increased by 15% from 1.1rem */
+    font-size: 1.27rem;
     font-weight: 600;
-    color: #ffffff; /* Bright white */
-    margin-bottom: 0.4rem; /* Reduced margin */
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* Smaller text shadow */
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
-/* List styling for content items */
 .item ul {
     list-style: disc;
-    margin-left: 1.2rem; /* Reduced margin */
-    margin-bottom: 0.4rem; /* Reduced margin */
+    margin-left: 1.2rem;
+    margin-bottom: 0.4rem;
 }
 
 .item li {
-    margin-bottom: 0.2rem; /* Reduced margin */
+    margin-bottom: 0.2rem;
 }
 
-.item p:last-child {
-    margin-bottom: 0;
-}
-
-/* Emphasized text with green glow */
 .item li strong {
-    margin-right: 0.4rem; /* Reduced margin */
-    color: #ffffff; /* Bright white */
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* Smaller text shadow */
-    font-size: 1.09rem; /* Increased by 15% from 0.95rem */
+    margin-right: 0.4rem;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+    font-size: 1.09rem;
 }
 
-/* --- Interactive Elements --- */
-/* Project link buttons */
+/* Project link styling */
 .github-link {
     display: inline-block;
-    padding: 0.3rem 0.7rem; /* Reduced padding */
-    background-color: #4a9eff; /* Blue base color */
+    padding: 0.3rem 0.7rem;
+    background-color: #4a9eff;
     color: white;
     text-decoration: none;
-    border-radius: 4px; /* Smaller border radius */
+    border-radius: 4px;
     transition: all 0.3s ease;
-    margin-top: 0.4rem; /* Reduced margin */
+    margin-top: 0.4rem;
     border: 1px solid #6ab0ff;
 }
 
-/* Red hover effect for links */
+/* Hover effect for project links */
 .github-link:hover {
     background-color: #ff0000;
     border-color: #ff3333;
-    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3); /* Smaller shadow */
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-/* --- Header Section --- */
-/* Main header with glass effect - now matching content boxes */
+/* Header section styling */
 .header {
     background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
     color: white;
     text-align: center;
-    padding: 2.1rem 0.9rem; /* Increased padding by 15% */
-    border-radius: 9px; /* Slightly larger border radius */
+    padding: 2.1rem 0.9rem;
+    border-radius: 9px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 17px; /* Increased margin by 15% */
+    margin-bottom: 17px;
     z-index: 1;
     border: 1px solid rgba(74, 158, 255, 0.3);
-    border-left: 2px solid rgba(74, 158, 255, 0.5); /* Matching section border */
+    border-left: 2px solid rgba(74, 158, 255, 0.5);
     box-shadow:
         0 3px 4px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 255, 0, 0.08); /* Smaller shadow */
+        0 0 30px rgba(0, 255, 0, 0.08);
     backdrop-filter: blur(10px) brightness(1.2);
-    max-width: 920px; /* Increased by 15% to match container */
+    max-width: 920px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Profile image container - smaller to match header size */
+/* Profile image container and animation */
 #image-container {
     display: flex;
     justify-content: center;
     width: 100%;
-}
-
-/* Circular profile image with intense fire animation */
-#image-container {
     position: relative;
 }
 
+/* Fire animation pseudo-elements */
 #image-container::before,
-#image-container::after,
-#image-container > div {
+#image-container::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 166px; /* Increased by 15% from 144px to match profile image */
-    height: 166px; /* Increased by 15% from 144px to match profile image */
+    width: 166px;
+    height: 166px;
     border-radius: 50%;
     z-index: 1;
 }
 
-/* Create the main fire ring */
 #image-container::before {
     animation: fireRing 3s ease-out infinite;
-    filter: blur(4px); /* Smaller blur */
+    filter: blur(4px);
 }
 
-/* Create swirling flames */
 #image-container::after {
     animation: swirlingFlames 4s ease-in-out infinite;
     filter: blur(2px);
 }
 
-/* Add floating sparks */
-@keyframes sparkFloat {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -80%) scale(0.2);
-        opacity: 0;
-    }
-}
-
+/* Profile image styling */
 #image-container img {
     position: relative;
-    margin-top: 10px; /* Further reduced margin */
+    margin-top: 10px;
     z-index: 2;
-    width: 152px; /* Increased by 15% from 132px */
+    width: 152px;
     height: auto;
     border-radius: 50%;
     border: 2px solid rgba(255, 140, 0, 0.8);
-    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6); /* Smaller shadow */
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6);
 }
 
+/* Fire ring animation keyframes */
 @keyframes fireRing {
     0%,
     100% {
@@ -483,6 +212,7 @@ body {
     }
 }
 
+/* Swirling flames animation keyframes */
 @keyframes swirlingFlames {
     0%,
     100% {
@@ -511,246 +241,104 @@ body {
     }
 }
 
-/* Add floating particles */
-.fire-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(255, 140, 0, 0.8);
-    border-radius: 50%;
-    animation: sparkFloat 2s ease-out infinite;
-}
-
-/* Main title styling */
-.header h1 {
-    font-size: 2.07rem; /* Increased by 15% from 1.8rem */
-    font-weight: 700;
-    margin-bottom: 0.5rem; /* Further reduced margin */
-    z-index: 2;
-    position: relative;
-}
-
-/* Navigation container - more compact */
+/* Navigation styling */
 .contact {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem; /* Further reduced gap */
+    gap: 0.5rem;
     z-index: 2;
     position: relative;
-    margin-bottom: 0.3rem; /* Add small bottom margin */
+    margin-bottom: 0.3rem;
 }
 
-/* Navigation links and contact info - increased font size */
-.contact a,
-.contact span {
+/* Contact links styling */
+.contact a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.2rem 0.5rem; /* Even smaller padding */
-    border-radius: 3px; /* Smaller border radius */
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
     background: linear-gradient(145deg, rgba(61, 61, 61, 0.9), rgba(71, 71, 71, 0.9));
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 255, 0, 0.3);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Smaller shadow */
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); /* Smaller text shadow */
-    font-size: 0.86rem; /* Increased by 15% from 0.75rem */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    font-size: 0.86rem;
 }
 
-/* Red hover effect for navigation */
+/* Hover effect for contact links */
 .contact a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3); /* Smaller shadow */
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
     border-color: #ff0000;
     background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
     color: #ff3333;
     transition: all 0.3s ease;
 }
 
-/* --- Skills Grid Layout --- */
-/* Responsive two-column grid for skills */
+/* Skills section grid layout */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller minimum width */
-    gap: 1rem; /* Reduced gap */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
-/* Skills list container */
 .skills-column ul {
     list-style: none;
     padding: 0;
 }
 
-/* Interactive skill items with hover effects */
+/* Individual skill item styling */
 .skills-column li {
     background: linear-gradient(145deg, rgba(61, 61, 61, 0.95), rgba(71, 71, 71, 0.95));
     color: #ffffff;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* Smaller text shadow */
-    padding: 0.3rem 0.7rem; /* Smaller padding */
-    margin-bottom: 0.4rem; /* Reduced margin */
-    border-radius: 4px; /* Smaller border radius */
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+    padding: 0.3rem 0.7rem;
+    margin-bottom: 0.4rem;
+    border-radius: 4px;
     border: 1px solid rgba(74, 158, 255, 0.2);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Smaller shadow */
-    transition: /* Smooth transitions for hover effects */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
         background 0.3s ease;
-    cursor: pointer; /* Indicate interactivity */
-    font-size: 0.92rem; /* Increased by 15% from 0.8rem */
+    cursor: pointer;
+    font-size: 0.92rem;
 }
 
-/* Emphasized text for skill items */
-#projects em {
-    color: #ff0000;
-}
-
-/* Hover state for skill items with red accent */
+/* Hover effect for skill items */
 .skills-column li:hover {
-    transform: translateY(-2px); /* Smaller lift effect */
-    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3); /* Smaller shadow */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(255, 0, 0, 0.3);
     border-color: #ff0000;
     background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
-    color: #ff3333; /* Bright red text */
+    color: #ff3333;
     transition: all 0.3s ease;
 }
 
-/* --- Decorative Wave Effects --- */
-/* Wave SVG containers */
-.header::before,
-.header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 20px; /* Smaller height */
-    background-size: 100% auto;
-    z-index: 1;
-}
-
-/* Top wave */
-.header::before {
-    top: -20px; /* Adjusted position */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231e3c72' fill-opacity='1' d='M0,96L48,117.3C96,139,192,181,288,197.3C384,213,480,203,576,186.7C672,171,768,149,864,144C960,139,1056,149,1152,149.3C1248,149,1344,139,1392,133.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-/* Bottom wave (flipped) */
-.header::after {
-    bottom: -20px; /* Adjusted position */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231a1a1a' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,144C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    transform: scaleY(-1);
-}
-
-/* --- Animations --- */
-/* Slide-in animation for sections */
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px); /* Smaller movement */
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0); /* End at natural position */
-    }
-}
-
-/* Animation class for sections */
-.animate-slide-in {
-    animation: slideInFromLeft 0.4s ease-out forwards; /* Faster animation */
-}
-
-/* --- Mobile Wrapper --- */
-/* Wrapper for mobile layout to stack code and console containers */
-.mobile-code-wrapper {
-    display: none; /* Hidden by default, shown in mobile view */
-    width: 100%;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    z-index: 1;
-}
-
-/* --- Responsive Design --- */
-/* Mobile-specific adjustments */
+/* Responsive design adjustments */
 @media (max-width: 768px) {
-    /* Navigation adjustments */
+    /* Stack navigation vertically on mobile */
     .contact {
-        flex-direction: column; /* Stack navigation vertically */
+        flex-direction: column;
     }
 
-    /* Profile image adjustments */
+    /* Adjust profile image size for mobile */
     #image-container img {
-        width: 138px; /* Increased by 15% from 120px */
-        height: auto; /* Maintain aspect ratio */
-        max-width: 80%; /* Prevent image from being too large */
+        width: 138px;
+        height: auto;
+        max-width: 80%;
     }
 
-    /* Ensure skills maintain two columns */
+    /* Maintain two-column grid for skills on mobile */
     .skills-container {
-        grid-template-columns: repeat(2, 1fr); /* Force two columns */
-        gap: 0.8rem; /* Smaller gap */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
     }
 
-    /* Adjust skill items for better mobile display */
+    /* Adjust skill item sizing for mobile */
     .skills-column li {
-        padding: 0.3rem 0.6rem; /* Smaller padding */
-        font-size: 0.86rem; /* Increased by 15% from 0.75rem */
-    }
-
-    /* Function and console container adjustments for mobile */
-    .top-code-container,
-    .bottom-console-container {
-        position: static; /* Change from fixed to static positioning */
-        width: 100%; /* Full width on mobile */
-        max-width: 100%; /* Allow full width */
-        height: auto; /* Auto height */
-        margin-bottom: 20px; /* Add space between containers */
-        padding: 10px; /* Reduce padding */
-        opacity: 1; /* Full opacity */
-        z-index: 1; /* Above background */
-    }
-
-    /* Stack containers vertically on mobile */
-    .top-code-container {
-        order: 1; /* Display first */
-        margin-top: 20px; /* Add space at top */
-    }
-
-    .bottom-console-container {
-        order: 2; /* Display second */
-    }
-
-    /* Adjust code and console text for better mobile display */
-    .top-code-text,
-    .bottom-console-text {
-        width: 100%; /* Full width */
-        font-size: 12.7px; /* Increased by 15% from 11px */
-        padding: 10px; /* Reduced padding */
-    }
-
-    /* Ensure main content appears above code/console on mobile */
-    .header,
-    .container {
-        position: relative;
-        z-index: 2; /* Above code/console containers */
-        background-color: rgba(211, 211, 211, 0.9); /* Semi-transparent background */
-        margin-bottom: 15px; /* Add space below */
-    }
-}
-
-/* Extra small devices (phones) */
-@media (max-width: 480px) {
-    /* Further reduce sizes for very small screens */
-    .top-code-text,
-    .bottom-console-text {
-        font-size: 11px;
-        padding: 8px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.86rem;
     }
 }

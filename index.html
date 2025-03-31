@@ -1,87 +1,27 @@
-<!--
-    Interactive Resume Website with Matrix Theme
-    ==========================================
-    
-    Architecture Overview:
-    ---------------------
-    1. HTML Structure:
-       - Semantic HTML5 elements for better SEO and accessibility
-       - ARIA roles and labels for screen readers
-       - Modular sections for easy maintenance
-    
-    2. Visual Elements:
-       - Glass morphism effect applied via CSS
-       - Function code display on the left side with computer screen styling
-       - Console output on the right side with dark terminal styling
-       - Typewriter effect for both code and console with blinking cursors
-       - Informal docstrings at the top of each function
-       - Profile image with fire animation
-       - Interactive sections with hover and click animations
-       - Responsive design adapting to all screen sizes
-    
-    3. Interactive Features:
-       - Smooth scrolling navigation
-       - Active section highlighting
-       - Interactive skill items with click effects
-    
-    4. Accessibility:
-       - ARIA labels and roles
-       - Semantic HTML structure
-       - High contrast text
-       - Alt text for images
-    
-    5. Performance:
-       - Preconnect to Google Fonts
-       - Efficient CSS animations
-       - External JavaScript for better caching
--->
-
 <!DOCTYPE html>
 <html lang="en" role="document">
 
 <head>
-    <!-- Character encoding and viewport configuration for proper rendering -->
+    <!-- Meta tags for proper character encoding and responsive viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume</title>
 
-    <!-- 
-        Typography Setup:
-        - Preconnect to Google Fonts servers for faster loading
-        - Inter font family with multiple weights for visual hierarchy
-        - Weights: 400 (normal), 600 (semi-bold), 700 (bold)
-    -->
+    <!-- Google Fonts: Inter (400, 600, 700) for consistent typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- 
-        Stylesheets:
-        1. Animate.css - External library for section animations
-        2. Custom styles - Main stylesheet for layout and theming
-    -->
+    <!-- External and custom stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- 
-        Background Features:
-        - Light grey background color
-        - Left side: Function code in a white computer screen-like box
-        - Right side: Console output in a dark terminal with white text
-        - Both sides feature typewriter effects and blinking cursors
-    -->
-
-    <!-- 
-        Profile Image Section:
-        - Circular image with fire animation effect
-        - Particle system for enhanced visual appeal
-        - Particles positioned with varying delays for natural effect
-    -->
+    <!-- Profile image with animated fire effect -->
     <div id="image-container">
         <div class="fire-particles">
-            <!-- Individual particles with staggered animation delays -->
+            <!-- Animated particles with staggered delays -->
             <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
             <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
@@ -94,26 +34,14 @@
         <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
     </div>
 
-    <!-- 
-        Header Section:
-        - Contains main navigation and contact information
-        - Glass morphism effect applied via CSS
-        - Responsive layout that adapts to screen size
-    -->
+    <!-- Header with navigation and contact information -->
     <header class="header" role="banner">
         <div class="container">
             <h1>Brett Smith</h1>
-            <!-- 
-                Navigation and Contact Links:
-                - Smooth scrolling navigation
-                - External links open in new tabs
-                - ARIA labels for accessibility
-                - Interactive hover effects
-            -->
+            <!-- Navigation links with accessibility labels -->
             <div class="contact">
                 <a href="#summary-heading" aria-label="Go to Summary Section of Brett Smith">👨‍💻 Summary</a>
                 <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
-                <span role="text">📱 Phone: (606) xxx-xxxx 'Please ask for my phone number!!"</span>
                 <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
                     aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
                 <a href="https://www.github.com/brett03112" target="_blank"
@@ -126,53 +54,25 @@
         </div>
     </header>
 
-    <!-- 
-        Main Content Area:
-        - Organized in semantic sections
-        - Each section has unique styling and animations
-        - Glass morphism effect on section containers
-    -->
+    <!-- Main content area -->
     <main class="container" role="main">
-        <!-- 
-            Summary Section:
-            - Professional overview
-            - Highlights key qualifications
-            - Strong typography for emphasis
-        -->
+        <!-- Professional summary section -->
         <section class="section" id="summary" aria-labelledby="summary-heading">
             <h2 class="section-title" id="summary-heading">👨‍💻 Summary</h2>
             <p>
                 <strong>Junior developer specializing in .NET, HTML, CSS, and Python with a passion for problem-solving.
-                    Seeking a full-time Software
-                    Developer or Data Analyst position, open to remote, hybrid, or on-site opportunities. Eager to build
-                    robust and
-                    scalable applications
-                    using the .NET stack and Python for data analysis and always ready to learn new technologies. Brings
-                    nearly 16 years of experience from the
-                    Department of
-                    Justice/Bureau of Prisons as a Utility Systems Supervisor. A passion for technology and
-                    problem-solving drives my
-                    career transition into software development.</strong>
+                    Seeking a full-time Software Developer or Data Analyst position, open to remote, hybrid, or on-site
+                    opportunities. Eager to build robust and scalable applications using the .NET stack and Python for
+                    data analysis and always ready to learn new technologies. Brings nearly 16 years of experience from
+                    the Department of Justice/Bureau of Prisons as a Utility Systems Supervisor. A passion for
+                    technology
+                    and problem-solving drives my career transition into software development.</strong>
             </p>
         </section>
     </main>
 
-    <!-- 
-        JavaScript Integration:
-        - External script for better caching
-        - Handles all interactive features
-        - Loaded at end of body for better performance
-    -->
+    <!-- JavaScript for interactive features -->
     <script src="scripts.js"></script>
-    <!-- 
-        Console background script:
-        - Creates function display on left and console output on right
-        - Implements typewriter effect with 300ms delay between lines
-        - Adds docstrings to functions explaining what they do
-        - Shows error handling in the debugMeIfYouCan function
-        - Delays console output until function code is fully displayed
-    -->
-    <script src="console-background.js"></script>
 </body>
 
 </html>

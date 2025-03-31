@@ -1,52 +1,27 @@
-<!-- 
-    Brett Smith's Resume - Projects Section
-    This HTML document showcases Brett Smith's projects, including a brief description of each project,
-    links to the source code on GitHub, and live demos where applicable.
-    
-    The design incorporates modern web practices such as responsive design, accessibility features,
-    and animations for an engaging user experience.
--->
-
 <!DOCTYPE html>
 <html lang="en" role="document">
 
 <head>
-    <!-- Character encoding and viewport configuration for proper rendering -->
+    <!-- Meta tags for proper character encoding and responsive viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume - Projects</title>
 
-    <!-- 
-        Typography Setup:
-        - Preconnect to Google Fonts servers for faster loading
-        - Inter font family with multiple weights for visual hierarchy
-        - Weights: 400 (normal), 600 (semi-bold), 700 (bold)
-    -->
+    <!-- Google Fonts: Inter (400, 600, 700) for consistent typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- 
-        Stylesheets:
-        1. Animate.css - External library for section animations
-        2. Custom styles - Main stylesheet for layout and theming
-    -->
+    <!-- External and custom stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Background has been replaced with a light grey color in CSS -->
-
-    <!-- 
-        Profile Image Section:
-        - Circular image with fire animation effect
-        - Particle system for enhanced visual appeal
-        - Particles positioned with varying delays for natural effect
-    -->
+    <!-- Profile image with animated fire effect -->
     <div id="image-container">
         <div class="fire-particles">
-            <!-- Individual particles with staggered animation delays -->
+            <!-- Animated particles with staggered delays -->
             <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
             <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
@@ -59,26 +34,14 @@
         <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
     </div>
 
-    <!-- 
-        Header Section:
-        - Contains main navigation and contact information
-        - Glass morphism effect applied via CSS
-        - Responsive layout that adapts to screen size
-    -->
+    <!-- Header with navigation and contact information -->
     <header class="header" role="banner">
         <div class="container">
             <h1>Brett Smith</h1>
-            <!-- 
-                Navigation and Contact Links:
-                - Smooth scrolling navigation
-                - External links open in new tabs
-                - ARIA labels for accessibility
-                - Interactive hover effects
-            -->
+            <!-- Navigation links with accessibility labels -->
             <div class="contact">
                 <a href="index.html" aria-label="Go to Home Page of Brett Smith">🏠 Home</a>
                 <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
-                <span role="text">📱 Phone: (606) xxx-xxxx 'Please ask for my phone number!!"</span>
                 <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
                     aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
                 <a href="https://www.github.com/brett03112" target="_blank"
@@ -91,21 +54,13 @@
         </div>
     </header>
 
-    <!-- 
-        Main Content Area:
-        - Organized in semantic sections
-        - Each section has unique styling and animations
-        - Glass morphism effect on section containers
-    -->
+    <!-- Main content area -->
     <main class="container" role="main">
-        <!-- 
-            Projects Section:
-            - Showcase of technical work
-            - Links to live demos and source code
-            - Detailed project descriptions
-        -->
+        <!-- Projects section showcasing technical work -->
         <section class="section" id="projects" aria-labelledby="projects-heading">
             <h2 class="section-title" id="projects-heading">🛠️ Projects</h2>
+
+            <!-- Holiday Dessert App project -->
             <div class="item">
                 <h3>Code: You "Holiday Dessert App"</h3>
                 <p>
@@ -128,22 +83,23 @@
                         🌐 View App</a>
                 </p>
             </div>
+
+            <!-- Prime Number Analysis project -->
             <div class="item">
                 <h3>Data Analysis of Primes using Various Number Bases with Information Theory</h3>
                 <p>
                     <strong>A computational research project that applies information theory concepts to analyze prime
-                        numbers
-                        across different numerical base representations (decimal, binary, octal, and hexadecimal). Using
-                        metrics
-                        like Shannon Entropy, Mutual Information, and Markov chain modeling, the project uncovers
-                        non-conventional
-                        patterns in prime numbers. Key findings include varying entropy characteristics across different
-                        bases,
-                        identification of rare digit transitions, optimal segmentation lengths for each base, and strong
-                        cross-base
-                        relationships. The methodologies developed can be applied to other domains including
-                        cryptography, genomics,
-                        natural language processing, financial market analysis, and quantum computing.</strong>
+                        numbers across different numerical base representations (decimal, binary, octal, and
+                        hexadecimal). Using
+                        metrics like Shannon Entropy, Mutual Information, and Markov chain modeling, the project
+                        uncovers
+                        non-conventional patterns in prime numbers. Key findings include varying entropy characteristics
+                        across different
+                        bases, identification of rare digit transitions, optimal segmentation lengths for each base, and
+                        strong
+                        cross-base relationships. The methodologies developed can be applied to other domains including
+                        cryptography, genomics, natural language processing, financial market analysis, and quantum
+                        computing.</strong>
                 </p>
                 <p>
                     <a href="https://github.com/brett03112/Data-Analysis-of-Primes-using-Various-Number-Bases-with-Information-Theory"
@@ -151,21 +107,18 @@
                         📁 View Code</a>
                 </p>
             </div>
+
+            <!-- SimpleIO-CSharp project -->
             <div class="item">
                 <h3>SimpleIO-CSharp</h3>
                 <p>
-                    <strong><em>!!WORK IN PROGRESS!!</em>
-                        <p>SimpleIO-CSharp is a static C# class designed to simplify reading and
-                            parsing input from the console.
-                            It provides a set of
-                            convenient methods to read tokens, numbers, strings, and create lists and multi-dimensional
-                            lists directly from console
-                            input. This class is particularly useful for competitive programming, quick scripting, or
-                            any
-                            scenario where you need to
-                            efficiently handle console input in C#.
-                    </strong>
-                </p>
+                    <strong><em>!!WORK IN PROGRESS!!</em> SimpleIO-CSharp is a static C# class designed to simplify
+                        reading and
+                        parsing input from the console. It provides a set of convenient methods to read tokens, numbers,
+                        strings, and create lists and multi-dimensional lists directly from console input. This class is
+                        particularly useful for competitive programming, quick scripting, or any scenario where you need
+                        to
+                        efficiently handle console input in C#.</strong>
                 </p>
                 <p>
                     <a href="https://github.com/brett03112/SimpleIO-CSharp" class="github-link" target="_blank"
@@ -176,15 +129,8 @@
         </section>
     </main>
 
-    <!-- 
-        JavaScript Integration:
-        - External script for better caching
-        - Handles all interactive features
-        - Loaded at end of body for better performance
-    -->
+    <!-- JavaScript for interactive features -->
     <script src="scripts.js"></script>
-    <!-- Console background with typewriter effect -->
-    <script src="console-background.js"></script>
 </body>
 
 </html>

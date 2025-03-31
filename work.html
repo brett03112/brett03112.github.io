@@ -1,50 +1,27 @@
-<!-- 
-    Brett Smith's Resume - Work Experience Section
-    This HTML document outlines the work experience of Brett Smith, including job titles, responsibilities, and
-    relevant details. The design incorporates modern web practices such as responsive design, accessibility features,
-    and animations for an engaging user experience.
--->
-
 <!DOCTYPE html>
 <html lang="en" role="document">
 
 <head>
-    <!-- Character encoding and viewport configuration for proper rendering -->
+    <!-- Meta tags for proper character encoding and responsive viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brett Smith's Resume - Work Experience</title>
 
-    <!-- 
-        Typography Setup:
-        - Preconnect to Google Fonts servers for faster loading
-        - Inter font family with multiple weights for visual hierarchy
-        - Weights: 400 (normal), 600 (semi-bold), 700 (bold)
-    -->
+    <!-- Google Fonts: Inter (400, 600, 700) for consistent typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- 
-        Stylesheets:
-        1. Animate.css - External library for section animations
-        2. Custom styles - Main stylesheet for layout and theming
-    -->
+    <!-- External and custom stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Background has been replaced with a light grey color in CSS -->
-
-    <!-- 
-        Profile Image Section:
-        - Circular image with fire animation effect
-        - Particle system for enhanced visual appeal
-        - Particles positioned with varying delays for natural effect
-    -->
+    <!-- Profile image with animated fire effect -->
     <div id="image-container">
         <div class="fire-particles">
-            <!-- Individual particles with staggered animation delays -->
+            <!-- Animated particles with staggered delays -->
             <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
             <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
@@ -57,26 +34,14 @@
         <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
     </div>
 
-    <!-- 
-        Header Section:
-        - Contains main navigation and contact information
-        - Glass morphism effect applied via CSS
-        - Responsive layout that adapts to screen size
-    -->
+    <!-- Header with navigation and contact information -->
     <header class="header" role="banner">
         <div class="container">
             <h1>Brett Smith</h1>
-            <!-- 
-                Navigation and Contact Links:
-                - Smooth scrolling navigation
-                - External links open in new tabs
-                - ARIA labels for accessibility
-                - Interactive hover effects
-            -->
+            <!-- Navigation links with accessibility labels -->
             <div class="contact">
                 <a href="index.html" aria-label="Go to Home Page of Brett Smith">🏠 Home</a>
                 <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
-                <span role="text">📱 Phone: (606) xxx-xxxx 'Please ask for my phone number!!"</span>
                 <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
                     aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
                 <a href="https://www.github.com/brett03112" target="_blank"
@@ -89,21 +54,13 @@
         </div>
     </header>
 
-    <!-- 
-        Main Content Area:
-        - Organized in semantic sections
-        - Each section has unique styling and animations
-        - Glass morphism effect on section containers
-    -->
+    <!-- Main content area -->
     <main class="container" role="main">
-        <!-- 
-            Work Experience Section:
-            - Chronological work history
-            - Detailed responsibilities
-            - Emphasis on transferable skills
-        -->
+        <!-- Work experience section with chronological history -->
         <section class="section" id="work-experience" aria-labelledby="work-experience-heading">
             <h2 class="section-title" id="work-experience-heading">💼 Work Experience</h2>
+
+            <!-- Current position at DOJ/BOP -->
             <div class="item">
                 <h3>Utility Systems Supervisor</h3>
                 <ul>
@@ -124,6 +81,8 @@
                     <li>Provide training and education to Adults in Custody (male and female).</li>
                 </ul>
             </div>
+
+            <!-- Military service -->
             <div class="item">
                 <h3>United States Marine Corps</h3>
                 <ul>
@@ -134,15 +93,8 @@
         </section>
     </main>
 
-    <!-- 
-        JavaScript Integration:
-        - External script for better caching
-        - Handles all interactive features
-        - Loaded at end of body for better performance
-    -->
+    <!-- JavaScript for interactive features -->
     <script src="scripts.js"></script>
-    <!-- Console background with typewriter effect -->
-    <script src="console-background.js"></script>
 </body>
 
 </html>
