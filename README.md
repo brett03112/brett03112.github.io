@@ -4,7 +4,7 @@ A modern, interactive resume website built with HTML, CSS, and JavaScript, featu
 
 ## Features
 
-- Responsive design that works on all devices
+- Responsive design that works on all devices using CSS media queries
 - Interactive sections with hover animations
 - Smooth scrolling navigation
 - Animated fire effect around profile image
@@ -34,3 +34,5 @@ Visit the live site at: <https://brett03112.github.io>
 - Education (including Code: You certification)
 - Technical and Professional Skills
 - Project Portfolio with live demos
+- Contact Information
+- Resume highlights
