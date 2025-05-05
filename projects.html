@@ -1,136 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" role="document">
 
-<head>
-    <!-- Meta tags for proper character encoding and responsive viewport -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brett Smith's Resume - Projects</title>
+    <head>
+        <!-- Meta tags for proper character encoding and responsive viewport -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Brett Smith's Resume - Projects</title>
 
-    <!-- Google Fonts: Inter (400, 600, 700) for consistent typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Google Fonts: Inter (400, 600, 700) for consistent typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- External and custom stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="styles.css">
-</head>
+        <!-- External and custom stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
 
-<body>
-    <!-- Profile image with animated fire effect -->
-    <div id="image-container">
-        <div class="fire-particles">
-            <!-- Animated particles with staggered delays -->
-            <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
-            <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
-            <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
-            <div class="particle" style="left: 48%; animation-delay: 1.2s;"></div>
-            <div class="particle" style="left: 52%; animation-delay: 1.6s;"></div>
-            <div class="particle" style="left: 47%; animation-delay: 2s;"></div>
-            <div class="particle" style="left: 53%; animation-delay: 2.4s;"></div>
-            <div class="particle" style="left: 49%; animation-delay: 2.8s;"></div>
+    <body>
+        <!-- Profile image with animated fire effect -->
+        <div id="image-container">
+            <div class="fire-particles">
+                <!-- Animated particles with staggered delays -->
+                <div class="particle" style="left: 45%; animation-delay: 0s;"></div>
+                <div class="particle" style="left: 50%; animation-delay: 0.4s;"></div>
+                <div class="particle" style="left: 55%; animation-delay: 0.8s;"></div>
+                <div class="particle" style="left: 48%; animation-delay: 1.2s;"></div>
+                <div class="particle" style="left: 52%; animation-delay: 1.6s;"></div>
+                <div class="particle" style="left: 47%; animation-delay: 2s;"></div>
+                <div class="particle" style="left: 53%; animation-delay: 2.4s;"></div>
+                <div class="particle" style="left: 49%; animation-delay: 2.8s;"></div>
+            </div>
+            <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
         </div>
-        <img src="./profile.jpg" alt="Profile Picture of Brett Smith">
-    </div>
 
-    <!-- Header with navigation and contact information -->
-    <header class="header" role="banner">
-        <div class="container">
-            <h1>Brett Smith</h1>
-            <!-- Navigation links with accessibility labels -->
-            <div class="contact">
-                <a href="index.html" aria-label="Go to Home Page of Brett Smith">🏠 Home</a>
-                <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
-                <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
-                    aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
-                <a href="https://www.github.com/brett03112" target="_blank"
-                    aria-label="GitHub Profile of Brett Smith">🔗 GitHub Profile</a>
-                <a href="work.html" aria-label="Go to Work Experience of Brett Smith">💼 Work Experience</a>
-                <a href="education.html" aria-label="Go to Education Section of Brett Smith">🎓 Education</a>
-                <a href="skills.html" aria-label="Go to Skills Section of Brett Smith">🚀 Skills</a>
-                <a href="projects.html" aria-label="Go to Projects Section of Brett Smith">🛠️ Projects</a>
+        <!-- Header with navigation and contact information -->
+        <header class="header" role="banner">
+            <div class="container">
+                <h1>Brett Smith</h1>
+                <!-- Navigation links with accessibility labels -->
+                <div class="contact">
+                    <a href="index.html" aria-label="Go to Home Page of Brett Smith">🏠 Home</a>
+                    <a href="mailto:brett03112@gmail.com" aria-label="Email Brett Smith">Email: brett03112@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/brett-smith-b78493207" target="_blank"
+                        aria-label="LinkedIn Profile of Brett Smith">🔗 LinkedIn Profile</a>
+                    <a href="https://www.github.com/brett03112" target="_blank"
+                        aria-label="GitHub Profile of Brett Smith">🔗 GitHub Profile</a>
+                    <a href="work.html" aria-label="Go to Work Experience of Brett Smith">💼 Work Experience</a>
+                    <a href="education.html" aria-label="Go to Education Section of Brett Smith">🎓 Education</a>
+                    <a href="skills.html" aria-label="Go to Skills Section of Brett Smith">🚀 Skills</a>
+                    <a href="projects.html" aria-label="Go to Projects Section of Brett Smith">🛠️ Projects</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Main content area -->
-    <main class="container" role="main">
-        <!-- Projects section showcasing technical work -->
-        <section class="section" id="projects" aria-labelledby="projects-heading">
-            <h2 class="section-title" id="projects-heading">🛠️ Projects</h2>
+        <!-- Main content area -->
+        <main class="container" role="main">
+            <!-- Projects section showcasing technical work -->
+            <section class="section" id="projects" aria-labelledby="projects-heading">
+                <h2 class="section-title" id="projects-heading">🛠️ Projects</h2>
 
-            <!-- Holiday Dessert App project -->
-            <div class="item">
-                <h3>Code: You "Holiday Dessert App"</h3>
-                <p>
-                    <strong>My final project for the Code: You May 2024 Software Development with C#.
-                        The app is an ecommerce application for purchasing holiday desserts using C# 13
-                        and .NET 9 with Razor Pages, SQLite3, EF Core, BootStrap CSS, JavaScript and it
-                        implements a minimal API with JWT authentication/ tokenization using http REST
-                        client requests. The app is deployed to Azure App Service with a CI-CD pipeline.
-                        It consumes (2) external API's; Stripe.net for payment processing and weatherapi.com
-                        for local weather information.</strong>
-                </p>
-                <p>
-                    <a href="https://github.com/brett03112/Code-You-Final-Project" class="github-link" target="_blank"
-                        aria-label="View Code for Holiday Dessert App">
-                        📁 View Code</a>
-                </p>
-                <p>
-                    <a href="https://holidaydessertstore-ehcdecg3a5arbtd2.canadacentral-01.azurewebsites.net/"
-                        class="github-link" target="_blank" aria-label="View Holiday Dessert App">
-                        🌐 View App</a>
-                </p>
-            </div>
+                <!-- Holiday Dessert App project -->
+                <div class="item">
+                    <h3>Code: You "Holiday Dessert App"</h3>
+                    <p>
+                        <strong>My final project for the Code: You May 2024 Software Development with C#.
+                            The app is an ecommerce application for purchasing holiday desserts using C# 13
+                            and .NET 9 with Razor Pages, SQLite3, EF Core, BootStrap CSS, JavaScript and it
+                            implements a minimal API with JWT authentication/ tokenization using http REST
+                            client requests. The app is deployed to Azure App Service with a CI-CD pipeline.
+                            It consumes (2) external API's; Stripe.net for payment processing and weatherapi.com
+                            for local weather information.</strong>
+                    </p>
+                    <p>
+                        <a href="https://github.com/brett03112/Code-You-Final-Project" class="github-link"
+                            target="_blank" aria-label="View Code for Holiday Dessert App">
+                            📁 View Code</a>
+                    </p>
+                    <p>
+                        <a href="https://holidaydessertstore-ehcdecg3a5arbtd2.canadacentral-01.azurewebsites.net/"
+                            class="github-link" target="_blank" aria-label="View Holiday Dessert App">
+                            🌐 View App</a>
+                    </p>
+                </div>
 
-            <!-- Prime Number Analysis project -->
-            <div class="item">
-                <h3>Data Analysis of Primes using Various Number Bases with Information Theory</h3>
-                <p>
-                    <strong>A computational research project that applies information theory concepts to analyze prime
-                        numbers across different numerical base representations (decimal, binary, octal, and
-                        hexadecimal). Using
-                        metrics like Shannon Entropy, Mutual Information, and Markov chain modeling, the project
-                        uncovers
-                        non-conventional patterns in prime numbers. Key findings include varying entropy characteristics
-                        across different
-                        bases, identification of rare digit transitions, optimal segmentation lengths for each base, and
-                        strong
-                        cross-base relationships. The methodologies developed can be applied to other domains including
-                        cryptography, genomics, natural language processing, financial market analysis, and quantum
-                        computing.</strong>
-                </p>
-                <p>
-                    <a href="https://github.com/brett03112/Data-Analysis-of-Primes-using-Various-Number-Bases-with-Information-Theory"
-                        class="github-link" target="_blank" aria-label="View Code for Prime Number Pattern Analysis">
-                        📁 View Code</a>
-                </p>
-            </div>
+                <!-- Prime Number Analysis project -->
+                <div class="item">
+                    <h3>Data Analysis of Primes using Various Number Bases with Information Theory</h3>
+                    <p>
+                        <strong>A computational research project that applies information theory concepts to analyze
+                            prime
+                            numbers across different numerical base representations (decimal, binary, octal, and
+                            hexadecimal). Using
+                            metrics like Shannon Entropy, Mutual Information, and Markov chain modeling, the project
+                            uncovers
+                            non-conventional patterns in prime numbers. Key findings include varying entropy
+                            characteristics
+                            across different
+                            bases, identification of rare digit transitions, optimal segmentation lengths for each base,
+                            and
+                            strong
+                            cross-base relationships. The methodologies developed can be applied to other domains
+                            including
+                            cryptography, genomics, natural language processing, financial market analysis, and quantum
+                            computing.</strong>
+                    </p>
+                    <p>
+                        <a href="https://github.com/brett03112/Data-Analysis-of-Primes-using-Various-Number-Bases-with-Information-Theory"
+                            class="github-link" target="_blank"
+                            aria-label="View Code for Prime Number Pattern Analysis">
+                            📁 View Code</a>
+                    </p>
+                </div>
 
-            <!-- SimpleIO-CSharp project -->
-            <div class="item">
-                <h3>SimpleIO-CSharp</h3>
-                <p>
-                    <strong><em>!!WORK IN PROGRESS!!</em> SimpleIO-CSharp is a static C# class designed to simplify
-                        reading and
-                        parsing input from the console. It provides a set of convenient methods to read tokens, numbers,
-                        strings, and create lists and multi-dimensional lists directly from console input. This class is
-                        particularly useful for competitive programming, quick scripting, or any scenario where you need
-                        to
-                        efficiently handle console input in C#.</strong>
-                </p>
-                <p>
-                    <a href="https://github.com/brett03112/SimpleIO-CSharp" class="github-link" target="_blank"
-                        aria-label="View Code for SimpleIO-CSharp">
-                        📁 View Code</a>
-                </p>
-            </div>
-        </section>
-    </main>
+                <!-- SimpleIO-CSharp project -->
+                <div class="item">
+                    <h3>SimpleIO-CSharp</h3>
+                    <p>
+                        <strong><em>!!WORK IN PROGRESS!!</em> SimpleIO-CSharp is a static C# class designed to simplify
+                            reading and
+                            parsing input from the console. It provides a set of convenient methods to read tokens,
+                            numbers,
+                            strings, and create lists and multi-dimensional lists directly from console input. This
+                            class is
+                            particularly useful for competitive programming, quick scripting, or any scenario where you
+                            need
+                            to
+                            efficiently handle console input in C#.</strong>
+                    </p>
+                    <p>
+                        <a href="https://github.com/brett03112/SimpleIO-CSharp" class="github-link" target="_blank"
+                            aria-label="View Code for SimpleIO-CSharp">
+                            📁 View Code</a>
+                    </p>
+                </div>
+            </section>
+        </main>
 
-    <!-- JavaScript for interactive features -->
-    <script src="scripts.js"></script>
-</body>
+        <!-- JavaScript for interactive features -->
+        <script src="scripts.js"></script>
+    </body>
 
 </html>
