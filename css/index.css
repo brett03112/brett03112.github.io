@@ -1,5 +1,5 @@
 /* index.css - Main stylesheet for Brett Smith's Resume Website
- * A modern, responsive resume with glass-morphism effects and interactive elements
+ * A modern, responsive, mobile-first resume with glass-morphism effects and interactive elements
  * Author: Brett Smith
  */
 
@@ -12,7 +12,7 @@
     padding: 0;
 }
 
-/* Global styles and typography */
+/* Global styles and typography - Mobile First */
 body {
     font-family: "Inter", sans-serif;
     line-height: 1.4;
@@ -21,7 +21,7 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
-    font-size: 0.98rem;
+    font-size: 0.92rem; /* Slightly smaller font for mobile */
 }
 
 /* Core layout containers */
@@ -33,22 +33,22 @@ body {
     background-color: transparent;
 }
 
-/* Main content wrapper */
+/* Main content wrapper - Mobile First */
 .container {
-    max-width: 920px;
+    width: 100%;
     margin: 0 auto;
-    padding: 1.7rem 0.9rem;
+    padding: 1rem 0.8rem;
 }
 
-/* Section styling with glass-morphism effect */
+/* Section styling with glass-morphism effect - Mobile First */
 .section {
-    margin-bottom: 1.7rem;
-    padding: 2.1rem;
-    border-radius: 9px;
+    margin-bottom: 1.2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
     border: 1px solid rgba(74, 158, 255, 0.3);
     box-shadow:
-        0 3px 4px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 255, 0, 0.08);
+        0 2px 3px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 255, 0, 0.08);
     backdrop-filter: blur(10px) brightness(1.2);
 }
 
@@ -57,30 +57,31 @@ body {
 #work-experience,
 #education,
 #skills,
-#projects {
+#projects,
+#resume {
     background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
     border-left: 2px solid rgba(74, 158, 255, 0.5);
 }
 
-/* Section title styling */
+/* Section title styling - Mobile First */
 .section-title {
-    font-size: 1.84rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #00ff00;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     border-bottom: 2px solid #00ff00;
     display: inline-block;
     padding-bottom: 0.2rem;
     text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
 }
 
-/* Content item styling */
+/* Content item styling - Mobile First */
 .item {
     margin-bottom: 1rem;
 }
 
 .item h3 {
-    font-size: 1.27rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 0.4rem;
@@ -89,7 +90,7 @@ body {
 
 .item ul {
     list-style: disc;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     margin-bottom: 0.4rem;
 }
 
@@ -101,7 +102,7 @@ body {
     margin-right: 0.4rem;
     color: #ffffff;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
-    font-size: 1.09rem;
+    font-size: 1rem;
 }
 
 /* Project link styling */
@@ -125,29 +126,29 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Header section styling */
+/* Header section styling - Mobile First */
 .header {
     background: linear-gradient(145deg, rgba(30, 45, 65, 0.97), rgba(35, 50, 72, 0.95));
     color: white;
     text-align: center;
-    padding: 2.1rem 0.9rem;
-    border-radius: 9px;
+    padding: 1.5rem 0.8rem;
+    border-radius: 8px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 17px;
+    margin-bottom: 15px;
     z-index: 1;
     border: 1px solid rgba(74, 158, 255, 0.3);
     border-left: 2px solid rgba(74, 158, 255, 0.5);
     box-shadow:
-        0 3px 4px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 255, 0, 0.08);
+        0 2px 3px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 255, 0, 0.08);
     backdrop-filter: blur(10px) brightness(1.2);
-    max-width: 920px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Profile image container and animation */
+/* Profile image container and animation - Mobile First */
 #image-container {
     display: flex;
     justify-content: center;
@@ -155,7 +156,7 @@ body {
     position: relative;
 }
 
-/* Fire animation pseudo-elements */
+/* Fire animation pseudo-elements - Mobile First */
 #image-container::before,
 #image-container::after {
     content: "";
@@ -163,8 +164,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 166px;
-    height: 166px;
+    width: 140px; /* Smaller for mobile */
+    height: 140px; /* Smaller for mobile */
     border-radius: 50%;
     z-index: 1;
 }
@@ -179,12 +180,12 @@ body {
     filter: blur(2px);
 }
 
-/* Profile image styling */
+/* Profile image styling - Mobile First */
 #image-container img {
     position: relative;
     margin-top: 10px;
     z-index: 2;
-    width: 152px;
+    width: 130px; /* Smaller for mobile */
     height: auto;
     border-radius: 50%;
     border: 2px solid rgba(255, 140, 0, 0.8);
@@ -241,22 +242,22 @@ body {
     }
 }
 
-/* Navigation styling */
+/* Navigation styling - Mobile First using Flexbox */
 .contact {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
     gap: 0.5rem;
     z-index: 2;
     position: relative;
     margin-bottom: 0.3rem;
 }
 
-/* Contact links styling */
+/* Contact links styling - Mobile First */
 .contact a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 3px;
     background: linear-gradient(145deg, rgba(61, 61, 61, 0.9), rgba(71, 71, 71, 0.9));
     transition: all 0.3s ease;
@@ -264,6 +265,8 @@ body {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
     font-size: 0.86rem;
+    width: 100%; /* Full width on mobile */
+    text-align: center;
 }
 
 /* Hover effect for contact links */
@@ -276,11 +279,11 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Skills section grid layout */
+/* Skills section grid layout - Mobile First */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 0.8rem;
 }
 
 .skills-column ul {
@@ -288,12 +291,12 @@ body {
     padding: 0;
 }
 
-/* Individual skill item styling */
+/* Individual skill item styling - Mobile First */
 .skills-column li {
     background: linear-gradient(145deg, rgba(61, 61, 61, 0.95), rgba(71, 71, 71, 0.95));
     color: #ffffff;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-    padding: 0.3rem 0.7rem;
+    padding: 0.3rem 0.6rem;
     margin-bottom: 0.4rem;
     border-radius: 4px;
     border: 1px solid rgba(74, 158, 255, 0.2);
@@ -303,7 +306,7 @@ body {
         box-shadow 0.2s ease,
         background 0.3s ease;
     cursor: pointer;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
 }
 
 /* Hover effect for skill items */
@@ -316,11 +319,10 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Certificate styling */
+/* Certificate styling - Mobile First */
 .certificate-container {
     width: 100%;
-    max-width: 800px;
-    margin: 1rem auto;
+    margin: 0.8rem auto;
     text-align: center;
     border-radius: 8px;
     overflow: hidden;
@@ -344,35 +346,146 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    /* Stack navigation vertically on mobile */
-    .contact {
-        flex-direction: column;
+/* Media query for tablet devices */
+@media (min-width: 576px) {
+    body {
+        font-size: 0.95rem;
     }
 
-    /* Adjust profile image size for mobile */
+    .container {
+        padding: 1.3rem 1rem;
+    }
+
+    .section {
+        padding: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .item h3 {
+        font-size: 1.2rem;
+    }
+
+    #image-container::before,
+    #image-container::after {
+        width: 150px;
+        height: 150px;
+    }
+
     #image-container img {
-        width: 138px;
-        height: auto;
-        max-width: 80%;
+        width: 140px;
     }
 
-    /* Maintain two-column grid for skills on mobile */
+    .contact {
+        flex-direction: row; /* Start to show horizontally */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contact a {
+        width: auto; /* Auto width on tablet */
+    }
+
     .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    }
+}
+
+/* Media query for desktop devices */
+@media (min-width: 768px) {
+    body {
+        font-size: 0.98rem;
     }
 
-    /* Adjust skill item sizing for mobile */
+    .container {
+        max-width: 920px;
+        padding: 1.7rem 0.9rem;
+    }
+
+    .section {
+        padding: 2.1rem;
+        margin-bottom: 1.7rem;
+        border-radius: 9px;
+        box-shadow:
+            0 3px 4px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(0, 255, 0, 0.08);
+    }
+
+    .section-title {
+        font-size: 1.84rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .item h3 {
+        font-size: 1.27rem;
+    }
+
+    .item ul {
+        margin-left: 1.2rem;
+    }
+
+    .item li strong {
+        font-size: 1.09rem;
+    }
+
+    #image-container::before,
+    #image-container::after {
+        width: 166px;
+        height: 166px;
+    }
+
+    #image-container img {
+        width: 152px;
+    }
+
+    .header {
+        padding: 2.1rem 0.9rem;
+        margin-bottom: 17px;
+        max-width: 920px;
+    }
+
+    .contact {
+        gap: 0.5rem;
+    }
+
+    .contact a {
+        padding: 0.2rem 0.5rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for desktop */
+        gap: 1rem;
+    }
+
     .skills-column li {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.86rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.92rem;
     }
 
-    /* Adjust certificate for mobile */
     .certificate-container {
-        max-width: 100%;
-        margin: 0.8rem auto;
+        max-width: 800px;
+        margin: 1rem auto;
+    }
+}
+
+/* Media query for large desktop screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1100px;
+    }
+
+    .section {
+        padding: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on large desktop */
     }
 }
